@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ecommerce Cart</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/cart.css">
+  <link rel="stylesheet" href="styles/mobile.css">
+  <script src="scripts/mobile.js" defer></script>
+</head>
+<body class="cart-page">
+  <svg class="icon-defs" aria-hidden="true" focusable="false">
+    <symbol id="i-user" viewBox="0 0 24 24">
+      <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-4.2 0-7 2.1-7 5v1h14v-1c0-2.9-2.8-5-7-5z"/>
+    </symbol>
+    <symbol id="i-message" viewBox="0 0 24 24">
+      <path d="M4 5h16v11H7l-3 3V5zm3 4h10v2H7zm0 4h7v2H7z"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 20.7 4.7 13.6a4.8 4.8 0 0 1 6.8-6.8L12 7.3l.5-.5a4.8 4.8 0 1 1 6.8 6.8z"/>
+    </symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24">
+      <path d="M7 6h14l-1.4 7.2a2 2 0 0 1-2 1.6H9.2L8.6 18h10.8v2H8a2 2 0 0 1-2-2l1-8H5V8h2l.5-2zm2.4 11.5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zm8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2z"/>
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24">
+      <path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24">
+      <path d="M13.5 8.4h2V5h-2.3c-2.4 0-3.7 1.4-3.7 4v2H7v3.3h2.5V20H13v-5.7h2.3l.4-3.3H13V9.4c0-.7.2-1 1-1z"/>
+    </symbol>
+    <symbol id="i-twitter" viewBox="0 0 24 24">
+      <path d="M20 7.3a6 6 0 0 1-1.8.5A3.1 3.1 0 0 0 19.6 6a6.2 6.2 0 0 1-2 .8A3.1 3.1 0 0 0 12.4 9a8.8 8.8 0 0 1-6.4-3.2 3.1 3.1 0 0 0 1 4.1A3 3 0 0 1 5.7 9v.1a3.1 3.1 0 0 0 2.5 3 3.1 3.1 0 0 1-1.4.1 3.1 3.1 0 0 0 2.9 2.2A6.3 6.3 0 0 1 5 16a8.9 8.9 0 0 0 4.8 1.4c5.8 0 9-4.8 9-9v-.4A6.3 6.3 0 0 0 20 7.3z"/>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path d="M6.2 8.5a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM4.7 10h3v9.2h-3zm5 0h2.9v1.3h.1a3.2 3.2 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5v4.9h-3v-4.3c0-1 0-2.4-1.5-2.4s-1.8 1.1-1.8 2.3v4.4h-3z"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24">
+      <path d="M7.5 4h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4zm0 2A1.5 1.5 0 0 0 6 7.5v9A1.5 1.5 0 0 0 7.5 18h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 16.5 6zm9.2 1.2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+    </symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24">
+      <path d="M21 8.6a2.7 2.7 0 0 0-1.9-1.9C17.4 6.2 12 6.2 12 6.2s-5.4 0-7.1.5A2.7 2.7 0 0 0 3 8.6a28 28 0 0 0 0 6.8 2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.1.5 7.1.5s5.4 0 7.1-.5a2.7 2.7 0 0 0 1.9-1.9 28 28 0 0 0 0-6.8zM10 15V9l5 3z"/>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24">
+      <rect x="6" y="11" width="12" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M9 11V8a3 3 0 0 1 6 0v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24">
+      <path d="M3 6h11v9H3zM14 9h4l3 3v3h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="8" cy="18" r="1.7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="18" cy="18" r="1.7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24">
+      <path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <header class="mobile-cart-header mobile-only">
+    <div class="mobile-page-bar">
+      <a class="mobile-back-button" href="detail.html" aria-label="Back">&larr;</a>
+      <div class="mobile-page-title">Shopping cart</div>
+    </div>
+  </header>
+
+  <header class="site-header cart-header">
+    <div class="container topbar">
+      <a class="brand" href="index.html">
+        <img src="assets/logo-colored.jpg" alt="Brand logo">
+      </a>
+
+      <div class="header-tools">
+        <a class="tool-link" href="#"><svg><use href="#i-user"></use></svg><span>Profile</span></a>
+        <a class="tool-link" href="#"><svg><use href="#i-message"></use></svg><span>Message</span></a>
+        <a class="tool-link" href="#"><svg><use href="#i-heart"></use></svg><span>Orders</span></a>
+        <a class="tool-link" href="cart.html"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container cart-shell">
+      <h1 class="cart-title">My cart (3)</h1>
+
+      <section class="mobile-cart-view mobile-only">
+        <div class="mobile-cart-list">
+          <article class="mobile-cart-item">
+            <div class="mobile-cart-item-top">
+              <img src="assets/tshirt-teal.jpg" alt="Teal t-shirt">
+              <div>
+                <h2>T-shirts with multiple colors for men</h2>
+                <p>Size: medium, Color: blue</p>
+                <p>Seller: Artel Market</p>
+              </div>
+              <span class="mobile-cart-more">⋮</span>
+            </div>
+            <div class="mobile-cart-item-bottom">
+              <div class="mobile-qty"><button type="button">−</button><span>2</span><button type="button">+</button></div>
+              <strong class="mobile-cart-price">$78.99</strong>
+            </div>
+          </article>
+          <article class="mobile-cart-item">
+            <div class="mobile-cart-item-top">
+              <img src="assets/blue-backpack.jpg" alt="Blue backpack">
+              <div>
+                <h2>Solid Backpack blue jeans large size</h2>
+                <p>Size: medium, Color: blue</p>
+                <p>Seller: Artel Market</p>
+              </div>
+              <span class="mobile-cart-more">⋮</span>
+            </div>
+            <div class="mobile-cart-item-bottom">
+              <div class="mobile-qty"><button type="button">−</button><span>1</span><button type="button">+</button></div>
+              <strong class="mobile-cart-price">$78.99</strong>
+            </div>
+          </article>
+          <article class="mobile-cart-item">
+            <div class="mobile-cart-item-top">
+              <img src="assets/tumbler.jpg" alt="Black tumbler">
+              <div>
+                <h2>Water boiler black for kitchen, 1200 Watt</h2>
+                <p>Size: medium, Color: blue</p>
+                <p>Seller: Artel Market</p>
+              </div>
+              <span class="mobile-cart-more">⋮</span>
+            </div>
+            <div class="mobile-cart-item-bottom">
+              <div class="mobile-qty"><button type="button">−</button><span>2</span><button type="button">+</button></div>
+              <strong class="mobile-cart-price">$78.99</strong>
+            </div>
+          </article>
+        </div>
+
+        <div class="mobile-cart-summary">
+          <div class="mobile-cart-summary-line"><span>Items (3):</span><strong>$32.00</strong></div>
+          <div class="mobile-cart-summary-line"><span>Shipping:</span><strong>$10.00</strong></div>
+          <div class="mobile-cart-summary-line"><span>Tax:</span><strong>$7.00</strong></div>
+          <div class="mobile-cart-summary-line total"><span>Total:</span><strong>$220.00</strong></div>
+          <a class="mobile-cart-checkout" href="#">Checkout (3 items)</a>
+        </div>
+
+        <section class="mobile-saved-section">
+          <h2>Saved for later</h2>
+          <div class="mobile-saved-list">
+            <article class="mobile-saved-card">
+              <img src="assets/black-headphones.jpg" alt="Gaming headset">
+              <div>
+                <h3>Regular Fit Resort Shirt</h3>
+                <strong>$57.70</strong>
+                <div class="mobile-saved-actions">
+                  <a class="move" href="cart.html">Move to cart</a>
+                  <a class="remove" href="#">Remove</a>
+                </div>
+              </div>
+            </article>
+            <article class="mobile-saved-card">
+              <img src="assets/black-mobile.jpg" alt="Black mobile">
+              <div>
+                <h3>Regular Fit Resort Shirt</h3>
+                <strong>$57.70</strong>
+                <div class="mobile-saved-actions">
+                  <a class="move" href="cart.html">Move to cart</a>
+                  <a class="remove" href="#">Remove</a>
+                </div>
+              </div>
+            </article>
+            <article class="mobile-saved-card">
+              <img src="assets/smart-watch.jpg" alt="Smart watch">
+              <div>
+                <h3>Regular Fit Resort Shirt</h3>
+                <strong>$57.70</strong>
+                <div class="mobile-saved-actions">
+                  <a class="move" href="cart.html">Move to cart</a>
+                  <a class="remove" href="#">Remove</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="cart-layout">
+        <div class="cart-main card">
+          <article class="cart-item">
+            <img class="cart-item-image" src="assets/tshirt-teal.jpg" alt="Teal t-shirt">
+            <div class="cart-item-body">
+              <h2>T-shirts with multiple colors, for men and lady</h2>
+              <p>Size: medium, Color: blue, Material: Plastic</p>
+              <p>Seller: Artel Market</p>
+              <div class="cart-item-actions">
+                <a class="cart-link-remove" href="#">Remove</a>
+                <a class="cart-link-save" href="#">Save for later</a>
+              </div>
+            </div>
+            <div class="cart-item-side">
+              <strong>$78.99</strong>
+              <select aria-label="Quantity for item one">
+                <option>Qty: 9</option>
+              </select>
+            </div>
+          </article>
+
+          <article class="cart-item">
+            <img class="cart-item-image" src="assets/blue-backpack.jpg" alt="Blue backpack">
+            <div class="cart-item-body">
+              <h2>T-shirts with multiple colors, for men and lady</h2>
+              <p>Size: medium, Color: blue, Material: Plastic</p>
+              <p>Seller: Best factory LLC</p>
+              <div class="cart-item-actions">
+                <a class="cart-link-remove" href="#">Remove</a>
+                <a class="cart-link-save" href="#">Save for later</a>
+              </div>
+            </div>
+            <div class="cart-item-side">
+              <strong>$39.00</strong>
+              <select aria-label="Quantity for item two">
+                <option>Qty: 3</option>
+              </select>
+            </div>
+          </article>
+
+          <article class="cart-item">
+            <img class="cart-item-image" src="assets/lamp.jpg" alt="Lamp">
+            <div class="cart-item-body">
+              <h2>T-shirts with multiple colors, for men and lady</h2>
+              <p>Size: medium, Color: blue, Material: Plastic</p>
+              <p>Seller: Artel Market</p>
+              <div class="cart-item-actions">
+                <a class="cart-link-remove" href="#">Remove</a>
+                <a class="cart-link-save" href="#">Save for later</a>
+              </div>
+            </div>
+            <div class="cart-item-side">
+              <strong>$170.50</strong>
+              <select aria-label="Quantity for item three">
+                <option>Qty: 1</option>
+              </select>
+            </div>
+          </article>
+
+          <div class="cart-main-footer">
+            <a class="cart-back-button" href="gridview.html"><svg><use href="#i-arrow-left"></use></svg> Back to shop</a>
+            <a class="cart-clear-button" href="#">Remove all</a>
+          </div>
+        </div>
+
+        <aside class="cart-summary">
+          <div class="coupon-card card">
+            <h2>Have a coupon?</h2>
+            <form class="coupon-form" action="#">
+              <input type="text" placeholder="Add coupon">
+              <button type="submit">Apply</button>
+            </form>
+          </div>
+
+          <div class="checkout-card card">
+            <div class="checkout-line"><span>Subtotal:</span><strong>$1403.97</strong></div>
+            <div class="checkout-line"><span>Discount:</span><strong class="negative">-$60.00</strong></div>
+            <div class="checkout-line"><span>Tax:</span><strong class="positive">+$14.00</strong></div>
+            <div class="checkout-total"><span>Total:</span><strong>$1357.97</strong></div>
+            <a class="checkout-button" href="#">Checkout</a>
+            <div class="payment-row">
+              <span>AMEX</span>
+              <span>Mastercard</span>
+              <span>PayPal</span>
+              <span>VISA</span>
+              <span>Apple Pay</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="cart-benefits">
+        <article class="benefit-item">
+          <div class="benefit-icon"><svg><use href="#i-lock"></use></svg></div>
+          <div><h2>Secure payment</h2><p>Have you ever finally just</p></div>
+        </article>
+        <article class="benefit-item">
+          <div class="benefit-icon"><svg><use href="#i-message"></use></svg></div>
+          <div><h2>Customer support</h2><p>Have you ever finally just</p></div>
+        </article>
+        <article class="benefit-item">
+          <div class="benefit-icon"><svg><use href="#i-truck"></use></svg></div>
+          <div><h2>Free delivery</h2><p>Have you ever finally just</p></div>
+        </article>
+      </section>
+
+      <section class="saved-section card">
+        <h2>Saved for later</h2>
+        <div class="saved-grid">
+          <article class="saved-card">
+            <img src="assets/tablet.jpg" alt="Tablet">
+            <strong>$99.50</strong>
+            <p>GoPro HERO6 4K Action Camera - Black</p>
+            <a class="saved-move-button" href="cart.html"><svg><use href="#i-cart"></use></svg> Move to cart</a>
+          </article>
+          <article class="saved-card">
+            <img src="assets/blue-mobile.jpg" alt="Blue mobile">
+            <strong>$99.50</strong>
+            <p>GoPro HERO6 4K Action Camera - Black</p>
+            <a class="saved-move-button" href="cart.html"><svg><use href="#i-cart"></use></svg> Move to cart</a>
+          </article>
+          <article class="saved-card">
+            <img src="assets/smart-watch.jpg" alt="Smart watch">
+            <strong>$99.50</strong>
+            <p>GoPro HERO6 4K Action Camera - Black</p>
+            <a class="saved-move-button" href="cart.html"><svg><use href="#i-cart"></use></svg> Move to cart</a>
+          </article>
+          <article class="saved-card">
+            <img src="assets/laptop.jpg" alt="Laptop">
+            <strong>$99.50</strong>
+            <p>GoPro HERO6 4K Action Camera - Black</p>
+            <a class="saved-move-button" href="cart.html"><svg><use href="#i-cart"></use></svg> Move to cart</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="discount-banner">
+        <div>
+          <h2>Super discount on more than 100 USD</h2>
+          <p>Have you ever finally just write dummy info</p>
+        </div>
+        <a href="#" class="discount-banner-button">Shop now</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-colored.jpg" alt="Brand logo">
+        <p>Best information about the company gies here but now lorem ipsum is</p>
+        <div class="socials">
+          <a href="#"><svg><use href="#i-facebook"></use></svg></a>
+          <a href="#"><svg><use href="#i-twitter"></use></svg></a>
+          <a href="#"><svg><use href="#i-linkedin"></use></svg></a>
+          <a href="#"><svg><use href="#i-instagram"></use></svg></a>
+          <a href="#"><svg><use href="#i-youtube"></use></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>About</h3>
+        <a href="#">About Us</a>
+        <a href="#">Find store</a>
+        <a href="#">Categories</a>
+        <a href="#">Blogs</a>
+      </div>
+      <div class="footer-column">
+        <h3>Partnership</h3>
+        <a href="#">About Us</a>
+        <a href="#">Find store</a>
+        <a href="#">Categories</a>
+        <a href="#">Blogs</a>
+      </div>
+      <div class="footer-column">
+        <h3>Information</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Money Refund</a>
+        <a href="#">Shipping</a>
+        <a href="#">Contact us</a>
+      </div>
+      <div class="footer-column">
+        <h3>For users</h3>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+        <a href="#">Settings</a>
+        <a href="#">My Orders</a>
+      </div>
+      <div class="footer-column footer-apps">
+        <h3>Get app</h3>
+        <a href="#" class="store-badge"><span>Download on the</span><strong>App Store</strong></a>
+        <a href="#" class="store-badge google-play"><span>GET IT ON</span><strong>Google Play</strong></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-row">
+        <p>&copy; 2023 Ecommerce.</p>
+        <a href="#" class="language-select"><img src="assets/usa.png" alt="English"><span>English</span><svg><use href="#i-chevron"></use></svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

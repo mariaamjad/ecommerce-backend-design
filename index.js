@@ -1,0 +1,25 @@
+
+const express = require('express');
+const app = express();
+
+// helps working with files and directories
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+})
+
+app.get('/products', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'gridview.html'));
+})
+
+app.get('/products/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'detail.html'));
+})
+
+
+app.listen(3000, () => {
+    console.log('Connected Succesfully on port 3000.')
+})

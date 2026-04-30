@@ -1,0 +1,181 @@
+:root {
+  --page-bg: #f7fafc;
+  --surface: #ffffff;
+  --text: #1c1c1c;
+  --muted: #8b96a5;
+  --line: #dee2e7;
+  --blue: #0d6efd;
+  --blue-strong: #127fff;
+  --blue-soft: #e8f1ff;
+  --orange: #ff9017;
+  --orange-soft: #fff0df;
+  --teal: #55bdc3;
+  --shadow: 0 1px 2px rgba(56, 56, 56, 0.06);
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: var(--page-bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.icon-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.container {
+  width: min(1180px, calc(100vw - 48px));
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.ghost-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 123px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-weight: 600;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--blue-strong);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-button {
+  width: 100%;
+  margin-top: 8px;
+  color: var(--blue);
+}
+
+.stars {
+  color: #ff9017;
+  letter-spacing: 1px;
+}
+
+.rating-value {
+  color: #ff9017;
+}
+
+.rating-value-muted {
+  color: #ff9017;
+  opacity: 0.8;
+}
+
+.wish-button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--blue-strong);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+}
+
+.wish-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+}
+
+.discount-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 38px;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(110deg, #237cff 0%, #0d6efd 62%, #1c5fd5 62%, #1c5fd5 100%);
+}
+
+.discount-banner h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+}
+
+.discount-banner p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 18px;
+}
+
+.discount-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 6px;
+  background: #ff9017;
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 920px) {
+  .container {
+    width: min(100vw - 28px, 1180px);
+  }
+
+  .discount-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

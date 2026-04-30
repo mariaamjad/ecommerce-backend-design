@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ecommerce Product Detail</title>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/detail.css">
+  <link rel="stylesheet" href="/styles/mobile.css">
+  <script src="/scripts/mobile.js" defer></script>
+</head>
+<body class="catalog-page detail-page">
+  <svg class="icon-defs" aria-hidden="true" focusable="false">
+    <symbol id="i-user" viewBox="0 0 24 24">
+      <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-4.2 0-7 2.1-7 5v1h14v-1c0-2.9-2.8-5-7-5z"/>
+    </symbol>
+    <symbol id="i-message" viewBox="0 0 24 24">
+      <path d="M4 5h16v11H7l-3 3V5zm3 4h10v2H7zm0 4h7v2H7z"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 20.7 4.7 13.6a4.8 4.8 0 0 1 6.8-6.8L12 7.3l.5-.5a4.8 4.8 0 1 1 6.8 6.8z"/>
+    </symbol>
+    <symbol id="i-heart-outline" viewBox="0 0 24 24">
+      <path d="M12 20.4 5.2 13.8a4.6 4.6 0 0 1 6.5-6.5l.3.3.3-.3a4.6 4.6 0 0 1 6.5 6.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24">
+      <path d="M7 6h14l-1.4 7.2a2 2 0 0 1-2 1.6H9.2L8.6 18h10.8v2H8a2 2 0 0 1-2-2l1-8H5V8h2l.5-2zm2.4 11.5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zm8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2z"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24">
+      <path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <path d="M4 6h16v12H4zm0 1.8 8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24">
+      <path d="M13.5 8.4h2V5h-2.3c-2.4 0-3.7 1.4-3.7 4v2H7v3.3h2.5V20H13v-5.7h2.3l.4-3.3H13V9.4c0-.7.2-1 1-1z"/>
+    </symbol>
+    <symbol id="i-twitter" viewBox="0 0 24 24">
+      <path d="M20 7.3a6 6 0 0 1-1.8.5A3.1 3.1 0 0 0 19.6 6a6.2 6.2 0 0 1-2 .8A3.1 3.1 0 0 0 12.4 9a8.8 8.8 0 0 1-6.4-3.2 3.1 3.1 0 0 0 1 4.1A3 3 0 0 1 5.7 9v.1a3.1 3.1 0 0 0 2.5 3 3.1 3.1 0 0 1-1.4.1 3.1 3.1 0 0 0 2.9 2.2A6.3 6.3 0 0 1 5 16a8.9 8.9 0 0 0 4.8 1.4c5.8 0 9-4.8 9-9v-.4A6.3 6.3 0 0 0 20 7.3z"/>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path d="M6.2 8.5a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM4.7 10h3v9.2h-3zm5 0h2.9v1.3h.1a3.2 3.2 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5v4.9h-3v-4.3c0-1 0-2.4-1.5-2.4s-1.8 1.1-1.8 2.3v4.4h-3z"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24">
+      <path d="M7.5 4h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4zm0 2A1.5 1.5 0 0 0 6 7.5v9A1.5 1.5 0 0 0 7.5 18h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 16.5 6zm9.2 1.2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+    </symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24">
+      <path d="M21 8.6a2.7 2.7 0 0 0-1.9-1.9C17.4 6.2 12 6.2 12 6.2s-5.4 0-7.1.5A2.7 2.7 0 0 0 3 8.6a28 28 0 0 0 0 6.8 2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.1.5 7.1.5s5.4 0 7.1-.5a2.7 2.7 0 0 0 1.9-1.9 28 28 0 0 0 0-6.8zM10 15V9l5 3z"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24">
+      <path d="M4 5h16v10H8l-4 4V5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 3 5 6v5c0 4.4 2.8 8.4 7 10 4.2-1.6 7-5.6 7-10V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="m9.5 12 1.6 1.7 3.4-3.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m5 12 4 4 10-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <header class="mobile-detail-header mobile-only">
+    <div class="mobile-page-bar">
+      <a class="mobile-back-button" href="listview.html" aria-label="Back">&larr;</a>
+      <div class="mobile-bar-actions">
+        <a class="mobile-icon-button" href="cart.html" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
+        <a class="mobile-icon-button" href="#" aria-label="Profile"><svg><use href="#i-user"></use></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <header class="site-header">
+    <div class="container topbar">
+      <a class="brand" href="index.html">
+        <img src="/assets/logo-colored.jpg" alt="Brand logo">
+      </a>
+
+      <form class="search-bar" action="#">
+        <input type="search" placeholder="Search">
+        <select aria-label="Select category">
+          <option>All category</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="header-tools">
+        <a class="tool-link" href="#"><svg><use href="#i-user"></use></svg><span>Profile</span></a>
+        <a class="tool-link" href="#"><svg><use href="#i-message"></use></svg><span>Message</span></a>
+        <a class="tool-link" href="#"><svg><use href="#i-heart"></use></svg><span>Orders</span></a>
+        <a class="tool-link" href="cart.html"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
+      </div>
+    </div>
+
+    <div class="nav-strip">
+      <div class="container nav-row">
+        <nav class="main-nav">
+          <a href="#" class="menu-trigger"><svg><use href="#i-menu"></use></svg><span>All category</span></a>
+          <a href="#">Hot offers</a>
+          <a href="#">Gift boxes</a>
+          <a href="#">Projects</a>
+          <a href="#">Menu item</a>
+          <a href="#" class="nav-with-chevron">Help <svg><use href="#i-chevron"></use></svg></a>
+        </nav>
+
+        <div class="nav-meta">
+          <a href="#" class="nav-with-chevron">English, USD <svg><use href="#i-chevron"></use></svg></a>
+          <a href="#" class="ship-link">Ship to <img src="/assets/germany.png" alt="Germany flag"><svg><use href="#i-chevron"></use></svg></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container catalog-shell detail-shell">
+      <div class="catalog-breadcrumbs">
+        <a href="#">Home</a>
+        <span>&gt;</span>
+        <a href="#">Clothings</a>
+        <span>&gt;</span>
+        <a href="#">Men's wear</a>
+        <span>&gt;</span>
+        <span>Summer clothing</span>
+      </div>
+
+      <section class="detail-hero card">
+        <div class="detail-gallery">
+          <div class="detail-main-image">
+            <img src="/assets/detail-shirt-main.png" alt="Gray polo shirt">
+          </div>
+          <div class="detail-thumbs">
+            <button class="detail-thumb active"><img src="/assets/detail-thumb-1.png" alt="Front thumbnail"></button>
+            <button class="detail-thumb"><img src="/assets/detail-thumb-2.png" alt="White thumbnail"></button>
+            <button class="detail-thumb"><img src="/assets/detail-thumb-3.png" alt="Collar thumbnail"></button>
+            <button class="detail-thumb"><img src="/assets/detail-thumb-4.png" alt="Model thumbnail"></button>
+            <button class="detail-thumb"><img src="/assets/detail-thumb-5.png" alt="Back thumbnail"></button>
+            <button class="detail-thumb"><img src="/assets/detail-thumb-6.png" alt="Small thumbnail"></button>
+          </div>
+        </div>
+
+        <div class="mobile-detail-summary mobile-only">
+          <div class="detail-meta-row">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+            <span class="detail-meta-dot"></span>
+            <span class="detail-meta-item"><svg><use href="#i-chat"></use></svg> 32 reviews</span>
+            <span class="detail-meta-dot"></span>
+            <span class="detail-meta-item"><svg><use href="#i-cart"></use></svg> 154 sold</span>
+          </div>
+          <h1>Product name goes here</h1>
+          <div class="mobile-detail-price">
+            <strong>$129.95</strong>
+            <span>(50-100 pcs)</span>
+          </div>
+          <div class="mobile-detail-cta">
+            <a href="cart.html" class="detail-buy-button">Buy Now</a>
+            <a href="cart.html" class="detail-add-button">Add to Cart</a>
+          </div>
+          <dl class="mobile-detail-specs">
+            <dt>Condition</dt><dd>Brand new</dd>
+            <dt>Material</dt><dd>Plastic</dd>
+            <dt>Category</dt><dd>Electronics, gadgets</dd>
+            <dt>Item num</dt><dd>23421</dd>
+          </dl>
+          <p class="mobile-detail-copy">Info about edu item is an ideal companion for anyone engaged in learning. The drone provides precise and ...</p>
+          <a class="mobile-read-more" href="#">Read more</a>
+        </div>
+
+        <div class="detail-info">
+          <div class="detail-stock"><svg><use href="#i-check"></use></svg> In stock</div>
+          <h1>Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h1>
+          <div class="detail-meta-row">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-value">9.3</span>
+            <span class="detail-meta-dot"></span>
+            <span class="detail-meta-item"><svg><use href="#i-chat"></use></svg> 32 reviews</span>
+            <span class="detail-meta-dot"></span>
+            <span class="detail-meta-item"><svg><use href="#i-cart"></use></svg> 154 sold</span>
+          </div>
+
+          <div class="detail-pricing">
+            <div class="tier active">
+              <strong>$98.00</strong>
+              <span>50-100 pcs</span>
+            </div>
+            <div class="tier">
+              <strong>$90.00</strong>
+              <span>100-700 pcs</span>
+            </div>
+            <div class="tier">
+              <strong>$78.00</strong>
+              <span>700+ pcs</span>
+            </div>
+          </div>
+
+          <dl class="detail-specs">
+            <div><dt>Price:</dt><dd>Negotiable</dd></div>
+            <div><dt>Type:</dt><dd>Classic shoes</dd></div>
+            <div><dt>Material:</dt><dd>Plastic material</dd></div>
+            <div><dt>Design:</dt><dd>Modern nice</dd></div>
+            <div><dt>Customization:</dt><dd>Customized logo and design custom packages</dd></div>
+            <div><dt>Protection:</dt><dd>Refund Policy</dd></div>
+            <div><dt>Warranty:</dt><dd>2 years full warranty</dd></div>
+          </dl>
+
+          <div class="detail-action-buttons">
+            <a href="cart.html" class="detail-buy-button">Buy Now</a>
+            <a href="cart.html" class="detail-add-button">Add to Cart</a>
+          </div>
+        </div>
+
+        <aside class="seller-panel-wrap">
+          <div class="seller-panel card">
+            <div class="seller-head">
+              <div class="seller-avatar">R</div>
+              <div>
+                <span>Supplier</span>
+                <strong>Guanjoi Trading LLC</strong>
+              </div>
+            </div>
+            <div class="seller-divider"></div>
+            <div class="seller-line"><img src="/assets/germany.png" alt="Germany flag"><span>Germany, Berlin</span></div>
+            <div class="seller-line"><svg><use href="#i-shield"></use></svg><span>Verified Seller</span></div>
+            <div class="seller-line"><svg><use href="#i-globe"></use></svg><span>Worldwide shipping</span></div>
+            <a href="#" class="primary-button seller-button">Send inquiry</a>
+            <a href="#" class="secondary-button seller-button-outline">Seller's profile</a>
+          </div>
+          <a href="#" class="save-later-link"><svg><use href="#i-heart-outline"></use></svg> Save for later</a>
+        </aside>
+      </section>
+
+      <section class="detail-lower">
+        <div class="detail-description card">
+          <div class="detail-tabs">
+            <a class="active" href="#">Description</a>
+            <a href="#">Reviews</a>
+            <a href="#">Shipping</a>
+            <a href="#">About seller</a>
+          </div>
+
+          <div class="detail-description-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+            <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+            <div class="detail-table">
+              <div><span>Model</span><strong>#8786867</strong></div>
+              <div><span>Style</span><strong>Classic style</strong></div>
+              <div><span>Certificate</span><strong>ISO-898921212</strong></div>
+              <div><span>Size</span><strong>34mm x 450mm x 19mm</strong></div>
+              <div><span>Memory</span><strong>36GB RAM</strong></div>
+            </div>
+
+            <ul class="detail-feature-list">
+              <li>Some great feature name here</li>
+              <li>Lorem ipsum dolor sit amet, consectetur</li>
+              <li>Duis aute irure dolor in reprehenderit</li>
+              <li>Some great feature name here</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="you-may-like card">
+          <h2>You may like</h2>
+          <a class="like-item" href="#"><img src="/assets/blue-coat.jpg" alt="Blue blazer"><div><strong>Men Blazers Sets Elegant Formal</strong><span>$7.00 - $99.50</span></div></a>
+          <a class="like-item" href="#"><img src="/assets/tshirt-teal.jpg" alt="Teal shirt"><div><strong>Men Shirt Sleeve Polo Contrast</strong><span>$7.00 - $99.50</span></div></a>
+          <a class="like-item" href="#"><img src="/assets/brown-jacket.jpg" alt="Brown jacket"><div><strong>Apple Watch Series Space Gray</strong><span>$7.00 - $99.50</span></div></a>
+          <a class="like-item" href="#"><img src="/assets/tshirt-blue.jpg" alt="Blue shirt"><div><strong>Basketball Crew Socks Long Stuff</strong><span>$7.00 - $99.50</span></div></a>
+          <a class="like-item" href="#"><img src="/assets/blue-backpack.jpg" alt="Blue backpack"><div><strong>New Summer Men's castrol T-Shirts</strong><span>$7.00 - $99.50</span></div></a>
+        </aside>
+      </section>
+
+      <section class="related-products card">
+        <h2>Related products</h2>
+        <div class="related-grid">
+          <a class="related-item" href="#"><img src="/assets/book-1.jpg" alt="Wallet"><strong>Xiaomi Redmi 8 Original</strong><span>$32.00-$40.00</span></a>
+          <a class="related-item" href="#"><img src="/assets/smart-watch.jpg" alt="Smart watch"><strong>Xiaomi Redmi 8 Original</strong><span>$32.00-$40.00</span></a>
+          <a class="related-item" href="#"><img src="/assets/white-headphones.jpg" alt="Headphones"><strong>Xiaomi Redmi 8 Original</strong><span>$32.00-$40.00</span></a>
+          <a class="related-item" href="#"><img src="/assets/shorts.jpg" alt="Shorts"><strong>Xiaomi Redmi 8 Original</strong><span>$32.00-$40.00</span></a>
+          <a class="related-item" href="#"><img src="/assets/tumbler.jpg" alt="Tumbler"><strong>Xiaomi Redmi 8 Original</strong><span>$32.00-$40.00</span></a>
+          <a class="related-item" href="#"><img src="/assets/brown-wallet.jpg" alt="Wallet"><strong>Xiaomi Redmi 8 Original</strong><span>$32.00-$40.00</span></a>
+        </div>
+      </section>
+
+      <section class="discount-banner">
+        <div>
+          <h2>Super discount on more than 100 USD</h2>
+          <p>Have you ever finally just write dummy info</p>
+        </div>
+        <a href="#" class="discount-banner-button">Shop now</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/logo-colored.jpg" alt="Brand logo">
+        <p>Best information about the company gies here but now lorem ipsum is</p>
+        <div class="socials">
+          <a href="#"><svg><use href="#i-facebook"></use></svg></a>
+          <a href="#"><svg><use href="#i-twitter"></use></svg></a>
+          <a href="#"><svg><use href="#i-linkedin"></use></svg></a>
+          <a href="#"><svg><use href="#i-instagram"></use></svg></a>
+          <a href="#"><svg><use href="#i-youtube"></use></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>About</h3>
+        <a href="#">About Us</a>
+        <a href="#">Find store</a>
+        <a href="#">Categories</a>
+        <a href="#">Blogs</a>
+      </div>
+      <div class="footer-column">
+        <h3>Partnership</h3>
+        <a href="#">About Us</a>
+        <a href="#">Find store</a>
+        <a href="#">Categories</a>
+        <a href="#">Blogs</a>
+      </div>
+      <div class="footer-column">
+        <h3>Information</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Money Refund</a>
+        <a href="#">Shipping</a>
+        <a href="#">Contact us</a>
+      </div>
+      <div class="footer-column">
+        <h3>For users</h3>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+        <a href="#">Settings</a>
+        <a href="#">My Orders</a>
+      </div>
+      <div class="footer-column footer-apps">
+        <h3>Get app</h3>
+        <a href="#" class="store-badge"><span>Download on the</span><strong>App Store</strong></a>
+        <a href="#" class="store-badge google-play"><span>GET IT ON</span><strong>Google Play</strong></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-row">
+        <p>&copy; 2023 Ecommerce.</p>
+        <a href="#" class="language-select"><img src="/assets/usa.png" alt="English"><span>English</span><svg><use href="#i-chevron"></use></svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

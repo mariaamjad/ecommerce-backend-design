@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecommerce Web Design Clone</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/mobile.css" />
+    <script src="scripts/mobile.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-defs" aria-hidden="true" focusable="false">
+      <symbol id="i-user" viewBox="0 0 24 24">
+        <path
+          d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-4.2 0-7 2.1-7 5v1h14v-1c0-2.9-2.8-5-7-5z"
+        />
+      </symbol>
+      <symbol id="i-message" viewBox="0 0 24 24">
+        <path d="M4 5h16v11H7l-3 3V5zm3 4h10v2H7zm0 4h7v2H7z" />
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path
+          d="M12 20.7 4.7 13.6a4.8 4.8 0 0 1 6.8-6.8L12 7.3l.5-.5a4.8 4.8 0 1 1 6.8 6.8z"
+        />
+      </symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24">
+        <path
+          d="M7 6h14l-1.4 7.2a2 2 0 0 1-2 1.6H9.2L8.6 18h10.8v2H8a2 2 0 0 1-2-2l1-8H5V8h2l.5-2zm2.4 11.5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zm8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2z"
+        />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <path
+          d="m7 10 5 5 5-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <path
+          d="M10.5 4a6.5 6.5 0 1 0 4.1 11.5l4.4 4.4 1.4-1.4-4.4-4.4A6.5 6.5 0 0 0 10.5 4zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"
+        />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <path
+          d="M4 6h16v12H4zm0 1.8 8 5.5 8-5.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path
+          d="M13.5 8.4h2V5h-2.3c-2.4 0-3.7 1.4-3.7 4v2H7v3.3h2.5V20H13v-5.7h2.3l.4-3.3H13V9.4c0-.7.2-1 1-1z"
+        />
+      </symbol>
+      <symbol id="i-twitter" viewBox="0 0 24 24">
+        <path
+          d="M20 7.3a6 6 0 0 1-1.8.5A3.1 3.1 0 0 0 19.6 6a6.2 6.2 0 0 1-2 .8A3.1 3.1 0 0 0 12.4 9a8.8 8.8 0 0 1-6.4-3.2 3.1 3.1 0 0 0 1 4.1A3 3 0 0 1 5.7 9v.1a3.1 3.1 0 0 0 2.5 3 3.1 3.1 0 0 1-1.4.1 3.1 3.1 0 0 0 2.9 2.2A6.3 6.3 0 0 1 5 16a8.9 8.9 0 0 0 4.8 1.4c5.8 0 9-4.8 9-9v-.4A6.3 6.3 0 0 0 20 7.3z"
+        />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M6.2 8.5a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM4.7 10h3v9.2h-3zm5 0h2.9v1.3h.1a3.2 3.2 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5v4.9h-3v-4.3c0-1 0-2.4-1.5-2.4s-1.8 1.1-1.8 2.3v4.4h-3z"
+        />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <path
+          d="M7.5 4h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4zm0 2A1.5 1.5 0 0 0 6 7.5v9A1.5 1.5 0 0 0 7.5 18h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 16.5 6zm9.2 1.2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+        />
+      </symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24">
+        <path
+          d="M21 8.6a2.7 2.7 0 0 0-1.9-1.9C17.4 6.2 12 6.2 12 6.2s-5.4 0-7.1.5A2.7 2.7 0 0 0 3 8.6a28 28 0 0 0 0 6.8 2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.1.5 7.1.5s5.4 0 7.1-.5a2.7 2.7 0 0 0 1.9-1.9 28 28 0 0 0 0-6.8zM10 15V9l5 3z"
+        />
+      </symbol>
+      <symbol id="i-home" viewBox="0 0 24 24">
+        <path
+          d="M4 11.2 12 4l8 7.2M7 10.5V20h10v-9.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-list-bullets" viewBox="0 0 24 24">
+        <path
+          d="M10 6h10M10 12h10M10 18h10M5.5 6h.01M5.5 12h.01M5.5 18h.01"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-box" viewBox="0 0 24 24">
+        <path
+          d="M5 7.5 12 4l7 3.5v9L12 20l-7-3.5zm7-3.5v8m7-4.5-7 4-7-4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-globe-outline" viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="9"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <path
+          d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.2"
+        />
+      </symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24">
+        <path
+          d="M5 13a7 7 0 1 1 14 0v4h-3v-4h3M5 13v4h3v-4H5m8 4v2a2 2 0 0 1-2 2h-1"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-building" viewBox="0 0 24 24">
+        <path
+          d="M4 20h16M6 20V6h12v14M9 9h2m2 0h2M9 13h2m2 0h2"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+
+    <div class="mobile-drawer-backdrop mobile-only" data-mobile-close></div>
+    <aside class="mobile-drawer mobile-only" aria-label="Mobile navigation">
+      <div class="mobile-drawer-head">
+        <div class="mobile-drawer-avatar"></div>
+        <p>Sign in | Register</p>
+        <button class="mobile-drawer-close" type="button" data-mobile-close aria-label="Close menu">&times;</button>
+      </div>
+      <div class="mobile-drawer-section">
+        <nav class="mobile-drawer-nav">
+          <a href="index.html"><svg><use href="#i-home"></use></svg><span>Home</span></a>
+          <a href="listview.html"><svg><use href="#i-list-bullets"></use></svg><span>Categories</span></a>
+          <a href="#"><svg><use href="#i-heart"></use></svg><span>Favorites</span></a>
+          <a href="#"><svg><use href="#i-box"></use></svg><span>My orders</span></a>
+        </nav>
+      </div>
+      <div class="mobile-drawer-section">
+        <div class="mobile-drawer-links">
+          <a href="#"><svg><use href="#i-globe-outline"></use></svg><span>English | USD</span></a>
+          <a href="#"><svg><use href="#i-headset"></use></svg><span>Contact us</span></a>
+          <a href="#"><svg><use href="#i-building"></use></svg><span>About</span></a>
+        </div>
+      </div>
+      <div class="mobile-drawer-section">
+        <div class="mobile-drawer-legal">
+          <a href="#">User agreement</a>
+          <a href="#">Partnership</a>
+          <a href="#">Privacy policy</a>
+        </div>
+      </div>
+    </aside>
+
+    <header class="mobile-home-header mobile-only">
+      <div class="mobile-top-row">
+        <button class="mobile-menu-button" type="button" data-mobile-open aria-label="Open menu">
+          <svg><use href="#i-menu"></use></svg>
+        </button>
+        <a class="brand" href="index.html">
+          <img src="assets/logo-colored.jpg" alt="Brand logo" />
+        </a>
+        <div class="mobile-icon-links">
+          <a class="mobile-icon-button" href="cart.html" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
+          <a class="mobile-icon-button" href="#" aria-label="Profile"><svg><use href="#i-user"></use></svg></a>
+        </div>
+      </div>
+      <form class="mobile-search-bar" action="#">
+        <svg><use href="#i-search"></use></svg>
+        <input type="search" placeholder="Search" />
+      </form>
+      <div class="mobile-chip-strip">
+        <a class="mobile-chip" href="#">All category</a>
+        <a class="mobile-chip" href="#">Gadgets</a>
+        <a class="mobile-chip" href="#">Clothes</a>
+        <a class="mobile-chip" href="#">Accessories</a>
+      </div>
+    </header>
+
+    <header class="site-header">
+      <div class="container topbar">
+        <a class="brand" href="#">
+          <img src="assets/logo-colored.jpg" alt="Brand logo" />
+        </a>
+
+        <form class="search-bar" action="#">
+          <input type="search" placeholder="Search" />
+          <select aria-label="Select category">
+            <option>All category</option>
+          </select>
+          <button type="submit">Search</button>
+        </form>
+
+        <div class="header-tools">
+          <a class="tool-link" href="#"
+            ><svg><use href="#i-user"></use></svg><span>Profile</span></a
+          >
+          <a class="tool-link" href="#"
+            ><svg><use href="#i-message"></use></svg><span>Message</span></a
+          >
+          <a class="tool-link" href="#"
+            ><svg><use href="#i-heart"></use></svg><span>Orders</span></a
+          >
+          <a class="tool-link" href="cart.html"
+            ><svg><use href="#i-cart"></use></svg><span>My cart</span></a
+          >
+        </div>
+      </div>
+
+      <div class="nav-strip">
+        <div class="container nav-row">
+          <nav class="main-nav">
+            <a href="#" class="menu-trigger"
+              ><svg><use href="#i-menu"></use></svg><span>All category</span></a
+            >
+            <a href="#">Hot offers</a>
+            <a href="#">Gift boxes</a>
+            <a href="#">Projects</a>
+            <a href="#">Menu item</a>
+            <a href="#" class="nav-with-chevron"
+              >Help <svg><use href="#i-chevron"></use></svg></a>
+          </nav>
+
+          <div class="nav-meta">
+            <a href="#" class="nav-with-chevron"
+              >English, USD <svg><use href="#i-chevron"></use></svg></a>
+            <a href="#" class="ship-link"
+              >Ship to <img src="assets/germany.png" alt="Germany flag" /><svg>
+                <use href="#i-chevron"></use></svg></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container page-stack">
+        <section class="hero card">
+          <aside class="hero-menu">
+            <a class="active" href="#">Automobiles</a>
+            <a href="#">Clothes and wear</a>
+            <a href="#">Home interiors</a>
+            <a href="#">Computer and tech</a>
+            <a href="#">Tools, equipments</a>
+            <a href="#">Sports and outdoor</a>
+            <a href="#">Animal and pets</a>
+            <a href="#">Machinery tools</a>
+            <a href="#">More category</a>
+          </aside>
+
+          <div class="hero-banner">
+            <div class="hero-copy">
+              <p>Latest trending</p>
+              <h1>Electronic items</h1>
+              <a href="#" class="ghost-button">Learn more</a>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <img class="banner" src="assets/banner.png" alt="banner">
+            </div>
+          </div>
+
+          <aside class="hero-side">
+            <div class="user-card">
+              <div class="user-meta">
+                <div class="avatar"></div>
+                <p>Hi, user<br />let's get stated</p>
+              </div>
+              <a href="#" class="primary-button">Join now</a>
+              <a href="#" class="secondary-button">Log in</a>
+            </div>
+
+            <a href="#" class="side-offer side-offer-orange"
+              >Get US $10 off<br />with a new<br />supplier</a
+            >
+            <a href="#" class="side-offer side-offer-teal"
+              >Send quotes with<br />supplier<br />preferences</a
+            >
+          </aside>
+        </section>
+
+        <section class="offer-panel card">
+          <div class="offer-summary">
+            <h2>Deals and offers</h2>
+            <p>Hygiene equipments</p>
+            <div class="countdown">
+              <span><strong>04</strong>Days</span>
+              <span><strong>13</strong>Hour</span>
+              <span><strong>34</strong>Min</span>
+              <span><strong>56</strong>Sec</span>
+            </div>
+          </div>
+
+          <article class="offer-card">
+            <div class="offer-image">
+              <img src="assets/smart-watch.jpg" alt="Smart watch" />
+            </div>
+            <h3>Smart watches</h3>
+            <span class="discount-chip">-25%</span>
+          </article>
+          <article class="offer-card">
+            <div class="offer-image">
+              <img src="assets/laptop.jpg" alt="Laptop" />
+            </div>
+            <h3>Laptops</h3>
+            <span class="discount-chip">-15%</span>
+          </article>
+          <article class="offer-card">
+            <div class="offer-image">
+              <img src="assets/camera.jpg" alt="Camera" />
+            </div>
+            <h3>GoPro cameras</h3>
+            <span class="discount-chip">-40%</span>
+          </article>
+          <article class="offer-card">
+            <div class="offer-image">
+              <img src="assets/black-headphones.jpg" alt="Headphones" />
+            </div>
+            <h3>Headphones</h3>
+            <span class="discount-chip">-25%</span>
+          </article>
+          <article class="offer-card">
+            <div class="offer-image">
+              <img src="assets/blue-mobile.jpg" alt="Mobile phone" />
+            </div>
+            <h3>Canon cameras</h3>
+            <span class="discount-chip">-25%</span>
+          </article>
+        </section>
+
+        <section class="category-panel card">
+          <div class="promo promo-home">
+            <div class="promo-copy">
+              <h2>Home and outdoor</h2>
+              <a href="#" class="ghost-button">Source now</a>
+            </div>
+            <img class="promo-plant" src="assets/plant.jpg" alt="" />
+          </div>
+
+          <div class="mini-grid">
+            <article class="mini-product">
+              <div>
+                <h3>Soft chairs</h3>
+                <p>From</p>
+                <strong>USD 19</strong>
+              </div>
+              <img src="assets/chair.jpg" alt="Chair" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Sofa &amp; chair</h3>
+                <p>From</p>
+                <strong>USD 19</strong>
+              </div>
+              <img src="assets/lamp.jpg" alt="Lamp" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Kitchen dishes</h3>
+                <p>From</p>
+                <strong>USD 19</strong>
+              </div>
+              <img src="assets/mattress.jpg" alt="Mattress" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Smart watches</h3>
+                <p>From</p>
+                <strong>USD 19</strong>
+              </div>
+              <img src="assets/pot.jpg" alt="Pot" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Kitchen mixer</h3>
+                <p>From</p>
+                <strong>USD 100</strong>
+              </div>
+              <img src="assets/juicer.jpg" alt="Juicer" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Blenders</h3>
+                <p>From</p>
+                <strong>USD 39</strong>
+              </div>
+              <img src="assets/washing-machine.jpg" alt="Washing machine" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Home appliance</h3>
+                <p>From</p>
+                <strong>USD 19</strong>
+              </div>
+              <img src="assets/brown-wallet.jpg" alt="Wallet" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Coffee maker</h3>
+                <p>From</p>
+                <strong>USD 10</strong>
+              </div>
+              <img src="assets/plant.jpg" alt="Plant" />
+            </article>
+          </div>
+          <a href="#" class="mobile-source-link mobile-only">Source now <span>&rarr;</span></a>
+        </section>
+
+        <section class="category-panel card">
+          <div class="promo promo-tech">
+            <div class="promo-copy">
+              <h2>Consumer electronics and gadgets</h2>
+              <a href="#" class="ghost-button">Source now</a>
+            </div>
+            <div class="tech-collage" aria-hidden="true">
+              <img class="tech-collage-tablet" src="assets/tablet.jpg" alt="" />
+              <img
+                class="tech-collage-headphones"
+                src="assets/white-headphones.jpg"
+                alt=""
+              />
+              <img
+                class="tech-collage-phone"
+                src="assets/black-mobile.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="mini-grid">
+            <article class="mini-product">
+              <div>
+                <h3>Smart watches</h3>
+                <p>From</p>
+                <strong>USD 19</strong>
+              </div>
+              <img src="assets/smart-watch.jpg" alt="Smart watch" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Cameras</h3>
+                <p>From</p>
+                <strong>USD 89</strong>
+              </div>
+              <img src="assets/camera.jpg" alt="Camera" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Headphones</h3>
+                <p>From</p>
+                <strong>USD 10</strong>
+              </div>
+              <img src="assets/white-headphones.jpg" alt="White headphones" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Smart watches</h3>
+                <p>From</p>
+                <strong>USD 90</strong>
+              </div>
+              <img src="assets/tumbler.jpg" alt="Tumbler" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Gaming set</h3>
+                <p>From</p>
+                <strong>USD 35</strong>
+              </div>
+              <img src="assets/black-headphones.jpg" alt="Gaming headset" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Laptops &amp; PC</h3>
+                <p>From</p>
+                <strong>USD 340</strong>
+              </div>
+              <img src="assets/laptop.jpg" alt="Laptop" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Smartphones</h3>
+                <p>From</p>
+                <strong>USD 19</strong>
+              </div>
+              <img src="assets/blue-mobile.jpg" alt="Blue mobile" />
+            </article>
+            <article class="mini-product">
+              <div>
+                <h3>Electric kattle</h3>
+                <p>From</p>
+                <strong>USD 240</strong>
+              </div>
+              <img src="assets/red-mobile.jpg" alt="Red mobile" />
+            </article>
+          </div>
+          <a href="#" class="mobile-source-link mobile-only">Source now <span>&rarr;</span></a>
+        </section>
+
+        <section class="inquiry-banner">
+          <div class="inquiry-copy">
+            <h2>An easy way to send requests to all suppliers</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt.
+            </p>
+            <a href="#" class="primary-button inquiry-mobile-button mobile-only">Send inquiry</a>
+          </div>
+
+          <form class="quote-card card" action="#">
+            <h3>Send quote to suppliers</h3>
+            <input type="text" placeholder="What item you need?" />
+            <textarea rows="4" placeholder="Type more details"></textarea>
+            <div class="quote-row">
+              <input type="text" value="Quantity" aria-label="Quantity" />
+              <select aria-label="Units">
+                <option>Pcs</option>
+              </select>
+            </div>
+            <button type="submit" class="primary-button">Send inquiry</button>
+          </form>
+        </section>
+
+        <section class="content-section">
+          <h2 class="section-title">Recommended items</h2>
+          <div class="products-grid">
+            <article class="product-card card">
+              <img src="assets/tshirt-teal.jpg" alt="Teal t-shirt" />
+              <div>
+                <strong>$10.30</strong>
+                <p>T-shirts with multiple colors, for men</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/brown-jacket.jpg" alt="Brown jacket" />
+              <div>
+                <strong>$10.30</strong>
+                <p>Jeans shorts for men blue color</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/blue-coat.jpg" alt="Blue coat" />
+              <div>
+                <strong>$12.50</strong>
+                <p>Brown winter coat medium size</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/book-1.jpg" alt="Blue wallet" />
+              <div>
+                <strong>$34.00</strong>
+                <p>Jeans bag for travel for men</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/blue-backpack.jpg" alt="Blue backpack" />
+              <div>
+                <strong>$99.00</strong>
+                <p>Leather wallet</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/shorts.jpg" alt="Shorts" />
+              <div>
+                <strong>$9.99</strong>
+                <p>Canon camera black, 100x zoom</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/white-headphones.jpg" alt="Headphones" />
+              <div>
+                <strong>$8.99</strong>
+                <p>Headset for gaming with mic</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/blue-backpack.jpg" alt="Blue backpack" />
+              <div>
+                <strong>$10.30</strong>
+                <p>Smartwatch silver color modern</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/pot.jpg" alt="Clay pot" />
+              <div>
+                <strong>$10.30</strong>
+                <p>Blue wallet for men leather metarfial</p>
+              </div>
+            </article>
+            <article class="product-card card">
+              <img src="assets/tumbler.jpg" alt="Electric kettle" />
+              <div>
+                <strong>$80.95</strong>
+                <p>Jeans bag for travel for men</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2 class="section-title">Our extra services</h2>
+          <div class="services-grid">
+            <article class="service-card card">
+              <img
+                class="service-thumb"
+                src="assets/service-1.png"
+                alt="Boxes and supplies"
+              />
+              <div class="service-body"><h3>Source from Industry Hubs</h3></div>
+            </article>
+            <article class="service-card card">
+              <img
+                class="service-thumb"
+                src="assets/service-2.png"
+                alt="Colorful product materials"
+              />
+              <div class="service-body"><h3>Customize Your Products</h3></div>
+            </article>
+            <article class="service-card card">
+              <img
+                class="service-thumb"
+                src="assets/service-3.png"
+                alt="Air freight"
+              />
+              <div class="service-body">
+                <h3>Fast, reliable shipping by ocean or air</h3>
+              </div>
+            </article>
+            <article class="service-card card">
+              <img
+                class="service-thumb"
+                src="assets/service-4.png"
+                alt="Warehouse inspection"
+              />
+              <div class="service-body">
+                <h3>Product monitoring and inspection</h3>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section suppliers-section">
+          <h2 class="section-title">Suppliers by region</h2>
+          <div class="regions-grid">
+            <a class="region-item" href="#"
+              ><img src="assets/uae.png" alt="Arabic Emirates" />
+              <div>
+                <strong>Arabic Emirates</strong><span>shopname.ae</span>
+              </div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/australia.png" alt="Australia" />
+              <div><strong>Australia</strong><span>shopname.ae</span></div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/usa.png" alt="United States" />
+              <div>
+                <strong>United States</strong><span>shopname.ae</span>
+              </div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/russia.png" alt="Russia" />
+              <div><strong>Russia</strong><span>shopname.ru</span></div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/italy.png" alt="Italy" />
+              <div><strong>Italy</strong><span>shopname.it</span></div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/denmark.png" alt="Denmark" />
+              <div><strong>Denmark</strong><span>denmark.com.dk</span></div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/france.png" alt="France" />
+              <div><strong>France</strong><span>shopname.com.fr</span></div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/uae.png" alt="Arabic Emirates" />
+              <div>
+                <strong>Arabic Emirates</strong><span>shopname.ae</span>
+              </div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/china.png" alt="China" />
+              <div><strong>China</strong><span>shopname.ae</span></div></a
+            >
+            <a class="region-item" href="#"
+              ><img src="assets/uk.png" alt="Great Britain" />
+              <div>
+                <strong>Great Britain</strong><span>shopname.co.uk</span>
+              </div></a
+            >
+          </div>
+        </section>
+      </div>
+
+      <section class="newsletter-wrap">
+        <div class="container newsletter">
+          <h2>Subscribe on our newsletter</h2>
+          <p>
+            Get daily news on upcoming offers from many suppliers all over the
+            world
+          </p>
+          <form class="newsletter-form" action="#">
+            <label class="email-field">
+              <svg><use href="#i-mail"></use></svg>
+              <input type="email" placeholder="Email" />
+            </label>
+            <button type="submit" class="primary-button">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-colored.jpg" alt="Brand logo" />
+          <p>
+            Best information about the company gies here but now lorem ipsum is
+          </p>
+          <div class="socials">
+            <a href="#"
+              ><svg><use href="#i-facebook"></use></svg></a>
+            <a href="#"
+              ><svg><use href="#i-twitter"></use></svg></a>
+            <a href="#"
+              ><svg><use href="#i-linkedin"></use></svg></a>
+            <a href="#"
+              ><svg><use href="#i-instagram"></use></svg></a>
+            <a href="#"
+              ><svg><use href="#i-youtube"></use></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>About</h3>
+          <a href="#">About Us</a>
+          <a href="#">Find store</a>
+          <a href="#">Categories</a>
+          <a href="#">Blogs</a>
+        </div>
+        <div class="footer-column">
+          <h3>Partnership</h3>
+          <a href="#">About Us</a>
+          <a href="#">Find store</a>
+          <a href="#">Categories</a>
+          <a href="#">Blogs</a>
+        </div>
+        <div class="footer-column">
+          <h3>Information</h3>
+          <a href="#">Help Center</a>
+          <a href="#">Money Refund</a>
+          <a href="#">Shipping</a>
+          <a href="#">Contact us</a>
+        </div>
+        <div class="footer-column">
+          <h3>For users</h3>
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+          <a href="#">Settings</a>
+          <a href="#">My Orders</a>
+        </div>
+        <div class="footer-column footer-apps">
+          <h3>Get app</h3>
+          <a href="#" class="store-badge"
+            ><span>Download on the</span><strong>App Store</strong></a
+          >
+          <a href="#" class="store-badge google-play"
+            ><span>GET IT ON</span><strong>Google Play</strong></a
+          >
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container footer-bottom-row">
+          <p>&copy; 2023 Ecommerce.</p>
+          <a href="#" class="language-select"
+            ><img src="assets/usa.png" alt="English" /><span>English</span
+            ><svg><use href="#i-chevron"></use></svg></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
