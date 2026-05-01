@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ecommerce Web Design Clone</title>
-    <link rel="stylesheet" href="styles/base.css" />
-    <link rel="stylesheet" href="styles/layout.css" />
-    <link rel="stylesheet" href="styles/home.css" />
-    <link rel="stylesheet" href="styles/mobile.css" />
-    <script src="scripts/mobile.js" defer></script>
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/mobile.css" />
+    <script src="/scripts/mobile.js" defer></script>
   </head>
   <body>
     <svg class="icon-defs" aria-hidden="true" focusable="false">
@@ -160,8 +160,8 @@
       </div>
       <div class="mobile-drawer-section">
         <nav class="mobile-drawer-nav">
-          <a href="index.html"><svg><use href="#i-home"></use></svg><span>Home</span></a>
-          <a href="listview.html"><svg><use href="#i-list-bullets"></use></svg><span>Categories</span></a>
+          <a href="/index.html"><svg><use href="#i-home"></use></svg><span>Home</span></a>
+          <a href="/listview.html"><svg><use href="#i-list-bullets"></use></svg><span>Categories</span></a>
           <a href="#"><svg><use href="#i-heart"></use></svg><span>Favorites</span></a>
           <a href="#"><svg><use href="#i-box"></use></svg><span>My orders</span></a>
         </nav>
@@ -187,11 +187,11 @@
         <button class="mobile-menu-button" type="button" data-mobile-open aria-label="Open menu">
           <svg><use href="#i-menu"></use></svg>
         </button>
-        <a class="brand" href="index.html">
-          <img src="assets/logo-colored.jpg" alt="Brand logo" />
+        <a class="brand" href="/index.html">
+          <img src="/assets/logo-colored.jpg" alt="Brand logo" />
         </a>
         <div class="mobile-icon-links">
-          <a class="mobile-icon-button" href="cart.html" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
+          <a class="mobile-icon-button" href="/cart.html" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
           <a class="mobile-icon-button" href="#" aria-label="Profile"><svg><use href="#i-user"></use></svg></a>
         </div>
       </div>
@@ -210,7 +210,7 @@
     <header class="site-header">
       <div class="container topbar">
         <a class="brand" href="#">
-          <img src="assets/logo-colored.jpg" alt="Brand logo" />
+          <img src="/assets/logo-colored.jpg" alt="Brand logo" />
         </a>
 
         <form class="search-bar" action="#">
@@ -243,7 +243,7 @@
             <a href="#" class="menu-trigger"
               ><svg><use href="#i-menu"></use></svg><span>All category</span></a
             >
-            <a href="#">Hot offers</a>
+            <a href="/gridview.html">Hot offers</a>
             <a href="#">Gift boxes</a>
             <a href="#">Projects</a>
             <a href="#">Menu item</a>
@@ -255,7 +255,7 @@
             <a href="#" class="nav-with-chevron"
               >English, USD <svg><use href="#i-chevron"></use></svg></a>
             <a href="#" class="ship-link"
-              >Ship to <img src="assets/germany.png" alt="Germany flag" /><svg>
+              >Ship to <img src="/assets/germany.png" alt="Germany flag" /><svg>
                 <use href="#i-chevron"></use></svg></a>
           </div>
         </div>
@@ -283,10 +283,6 @@
               <h1>Electronic items</h1>
               <a href="#" class="ghost-button">Learn more</a>
             </div>
-
-            <div class="hero-visual" aria-hidden="true">
-              <img class="banner" src="assets/banner.png" alt="banner">
-            </div>
           </div>
 
           <aside class="hero-side">
@@ -299,12 +295,10 @@
               <a href="#" class="secondary-button">Log in</a>
             </div>
 
-            <a href="#" class="side-offer side-offer-orange"
-              >Get US $10 off<br />with a new<br />supplier</a
-            >
-            <a href="#" class="side-offer side-offer-teal"
-              >Send quotes with<br />supplier<br />preferences</a
-            >
+            <a href="#" class="side-offer side-offer-orange">
+              Get US $10 off <br/> with a new <br/> supplier</a>
+            <a href="#" class="side-offer side-offer-teal">
+              Send quotes with <br/> supplier <br/> preferences</a>
           </aside>
         </section>
 
@@ -322,35 +316,35 @@
 
           <article class="offer-card">
             <div class="offer-image">
-              <img src="assets/smart-watch.jpg" alt="Smart watch" />
+              <img src="/assets/smart-watch.jpg" alt="Smart watch" />
             </div>
             <h3>Smart watches</h3>
             <span class="discount-chip">-25%</span>
           </article>
           <article class="offer-card">
             <div class="offer-image">
-              <img src="assets/laptop.jpg" alt="Laptop" />
+              <img src="/assets/laptop.jpg" alt="Laptop" />
             </div>
             <h3>Laptops</h3>
             <span class="discount-chip">-15%</span>
           </article>
           <article class="offer-card">
             <div class="offer-image">
-              <img src="assets/camera.jpg" alt="Camera" />
+              <img src="/assets/camera.jpg" alt="Camera" />
             </div>
             <h3>GoPro cameras</h3>
             <span class="discount-chip">-40%</span>
           </article>
           <article class="offer-card">
             <div class="offer-image">
-              <img src="assets/black-headphones.jpg" alt="Headphones" />
+              <img src="/assets/black-headphones.jpg" alt="Headphones" />
             </div>
             <h3>Headphones</h3>
             <span class="discount-chip">-25%</span>
           </article>
           <article class="offer-card">
             <div class="offer-image">
-              <img src="assets/blue-mobile.jpg" alt="Mobile phone" />
+              <img src="/assets/blue-mobile.jpg" alt="Mobile phone" />
             </div>
             <h3>Canon cameras</h3>
             <span class="discount-chip">-25%</span>
@@ -363,7 +357,6 @@
               <h2>Home and outdoor</h2>
               <a href="#" class="ghost-button">Source now</a>
             </div>
-            <img class="promo-plant" src="assets/plant.jpg" alt="" />
           </div>
 
           <div class="mini-grid">
@@ -373,7 +366,7 @@
                 <p>From</p>
                 <strong>USD 19</strong>
               </div>
-              <img src="assets/chair.jpg" alt="Chair" />
+              <img src="/assets/chair.jpg" alt="Chair" />
             </article>
             <article class="mini-product">
               <div>
@@ -381,7 +374,7 @@
                 <p>From</p>
                 <strong>USD 19</strong>
               </div>
-              <img src="assets/lamp.jpg" alt="Lamp" />
+              <img src="/assets/lamp.jpg" alt="Lamp" />
             </article>
             <article class="mini-product">
               <div>
@@ -389,7 +382,7 @@
                 <p>From</p>
                 <strong>USD 19</strong>
               </div>
-              <img src="assets/mattress.jpg" alt="Mattress" />
+              <img src="/assets/mattress.jpg" alt="Mattress" />
             </article>
             <article class="mini-product">
               <div>
@@ -397,7 +390,7 @@
                 <p>From</p>
                 <strong>USD 19</strong>
               </div>
-              <img src="assets/pot.jpg" alt="Pot" />
+              <img src="/assets/pot.jpg" alt="Pot" />
             </article>
             <article class="mini-product">
               <div>
@@ -405,7 +398,7 @@
                 <p>From</p>
                 <strong>USD 100</strong>
               </div>
-              <img src="assets/juicer.jpg" alt="Juicer" />
+              <img src="/assets/juicer.jpg" alt="Juicer" />
             </article>
             <article class="mini-product">
               <div>
@@ -413,7 +406,7 @@
                 <p>From</p>
                 <strong>USD 39</strong>
               </div>
-              <img src="assets/washing-machine.jpg" alt="Washing machine" />
+              <img src="/assets/washing-machine.jpg" alt="Washing machine" />
             </article>
             <article class="mini-product">
               <div>
@@ -421,7 +414,7 @@
                 <p>From</p>
                 <strong>USD 19</strong>
               </div>
-              <img src="assets/brown-wallet.jpg" alt="Wallet" />
+              <img src="/assets/brown-wallet.jpg" alt="Wallet" />
             </article>
             <article class="mini-product">
               <div>
@@ -429,7 +422,7 @@
                 <p>From</p>
                 <strong>USD 10</strong>
               </div>
-              <img src="assets/plant.jpg" alt="Plant" />
+              <img src="/assets/plant.jpg" alt="Plant" />
             </article>
           </div>
           <a href="#" class="mobile-source-link mobile-only">Source now <span>&rarr;</span></a>
@@ -441,19 +434,6 @@
               <h2>Consumer electronics and gadgets</h2>
               <a href="#" class="ghost-button">Source now</a>
             </div>
-            <div class="tech-collage" aria-hidden="true">
-              <img class="tech-collage-tablet" src="assets/tablet.jpg" alt="" />
-              <img
-                class="tech-collage-headphones"
-                src="assets/white-headphones.jpg"
-                alt=""
-              />
-              <img
-                class="tech-collage-phone"
-                src="assets/black-mobile.jpg"
-                alt=""
-              />
-            </div>
           </div>
 
           <div class="mini-grid">
@@ -463,7 +443,7 @@
                 <p>From</p>
                 <strong>USD 19</strong>
               </div>
-              <img src="assets/smart-watch.jpg" alt="Smart watch" />
+              <img src="/assets/smart-watch.jpg" alt="Smart watch" />
             </article>
             <article class="mini-product">
               <div>
@@ -471,7 +451,7 @@
                 <p>From</p>
                 <strong>USD 89</strong>
               </div>
-              <img src="assets/camera.jpg" alt="Camera" />
+              <img src="/assets/camera.jpg" alt="Camera" />
             </article>
             <article class="mini-product">
               <div>
@@ -479,7 +459,7 @@
                 <p>From</p>
                 <strong>USD 10</strong>
               </div>
-              <img src="assets/white-headphones.jpg" alt="White headphones" />
+              <img src="/assets/white-headphones.jpg" alt="White headphones" />
             </article>
             <article class="mini-product">
               <div>
@@ -487,7 +467,7 @@
                 <p>From</p>
                 <strong>USD 90</strong>
               </div>
-              <img src="assets/tumbler.jpg" alt="Tumbler" />
+              <img src="/assets/tumbler.jpg" alt="Tumbler" />
             </article>
             <article class="mini-product">
               <div>
@@ -495,7 +475,7 @@
                 <p>From</p>
                 <strong>USD 35</strong>
               </div>
-              <img src="assets/black-headphones.jpg" alt="Gaming headset" />
+              <img src="/assets/black-headphones.jpg" alt="Gaming headset" />
             </article>
             <article class="mini-product">
               <div>
@@ -503,7 +483,7 @@
                 <p>From</p>
                 <strong>USD 340</strong>
               </div>
-              <img src="assets/laptop.jpg" alt="Laptop" />
+              <img src="/assets/laptop.jpg" alt="Laptop" />
             </article>
             <article class="mini-product">
               <div>
@@ -511,7 +491,7 @@
                 <p>From</p>
                 <strong>USD 19</strong>
               </div>
-              <img src="assets/blue-mobile.jpg" alt="Blue mobile" />
+              <img src="/assets/blue-mobile.jpg" alt="Blue mobile" />
             </article>
             <article class="mini-product">
               <div>
@@ -519,7 +499,7 @@
                 <p>From</p>
                 <strong>USD 240</strong>
               </div>
-              <img src="assets/red-mobile.jpg" alt="Red mobile" />
+              <img src="/assets/red-mobile.jpg" alt="Red mobile" />
             </article>
           </div>
           <a href="#" class="mobile-source-link mobile-only">Source now <span>&rarr;</span></a>
@@ -553,70 +533,70 @@
           <h2 class="section-title">Recommended items</h2>
           <div class="products-grid">
             <article class="product-card card">
-              <img src="assets/tshirt-teal.jpg" alt="Teal t-shirt" />
+              <img src="/assets/tshirt-teal.jpg" alt="Teal t-shirt" />
               <div>
                 <strong>$10.30</strong>
                 <p>T-shirts with multiple colors, for men</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/brown-jacket.jpg" alt="Brown jacket" />
+              <img src="/assets/brown-jacket.jpg" alt="Brown jacket" />
               <div>
                 <strong>$10.30</strong>
                 <p>Jeans shorts for men blue color</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/blue-coat.jpg" alt="Blue coat" />
+              <img src="/assets/blue-coat.jpg" alt="Blue coat" />
               <div>
                 <strong>$12.50</strong>
                 <p>Brown winter coat medium size</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/book-1.jpg" alt="Blue wallet" />
+              <img src="/assets/book-1.jpg" alt="Blue wallet" />
               <div>
                 <strong>$34.00</strong>
                 <p>Jeans bag for travel for men</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/blue-backpack.jpg" alt="Blue backpack" />
+              <img src="/assets/blue-backpack.jpg" alt="Blue backpack" />
               <div>
                 <strong>$99.00</strong>
                 <p>Leather wallet</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/shorts.jpg" alt="Shorts" />
+              <img src="/assets/shorts.jpg" alt="Shorts" />
               <div>
                 <strong>$9.99</strong>
                 <p>Canon camera black, 100x zoom</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/white-headphones.jpg" alt="Headphones" />
+              <img src="/assets/white-headphones.jpg" alt="Headphones" />
               <div>
                 <strong>$8.99</strong>
                 <p>Headset for gaming with mic</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/blue-backpack.jpg" alt="Blue backpack" />
+              <img src="/assets/blue-backpack.jpg" alt="Blue backpack" />
               <div>
                 <strong>$10.30</strong>
                 <p>Smartwatch silver color modern</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/pot.jpg" alt="Clay pot" />
+              <img src="/assets/pot.jpg" alt="Clay pot" />
               <div>
                 <strong>$10.30</strong>
                 <p>Blue wallet for men leather metarfial</p>
               </div>
             </article>
             <article class="product-card card">
-              <img src="assets/tumbler.jpg" alt="Electric kettle" />
+              <img src="/assets/tumbler.jpg" alt="Electric kettle" />
               <div>
                 <strong>$80.95</strong>
                 <p>Jeans bag for travel for men</p>
@@ -631,37 +611,37 @@
             <article class="service-card card">
               <img
                 class="service-thumb"
-                src="assets/service-1.png"
+                src="/assets/service-1.png"
                 alt="Boxes and supplies"
               />
-              <div class="service-body"><h3>Source from Industry Hubs</h3></div>
+              <div class="service-body"><h3>Source from <br/> Industry Hubs</h3></div>
             </article>
             <article class="service-card card">
               <img
                 class="service-thumb"
-                src="assets/service-2.png"
+                src="/assets/service-2.png"
                 alt="Colorful product materials"
               />
-              <div class="service-body"><h3>Customize Your Products</h3></div>
+              <div class="service-body"><h3>Customize Your <br/> Products</h3></div>
             </article>
             <article class="service-card card">
               <img
                 class="service-thumb"
-                src="assets/service-3.png"
+                src="/assets/service-3.png"
                 alt="Air freight"
               />
               <div class="service-body">
-                <h3>Fast, reliable shipping by ocean or air</h3>
+                <h3>Fast, reliable shipping <br/> by ocean or air</h3>
               </div>
             </article>
             <article class="service-card card">
               <img
                 class="service-thumb"
-                src="assets/service-4.png"
+                src="/assets/service-4.png"
                 alt="Warehouse inspection"
               />
               <div class="service-body">
-                <h3>Product monitoring and inspection</h3>
+                <h3>Product monitoring <br/> and inspection</h3>
               </div>
             </article>
           </div>
@@ -671,49 +651,49 @@
           <h2 class="section-title">Suppliers by region</h2>
           <div class="regions-grid">
             <a class="region-item" href="#"
-              ><img src="assets/uae.png" alt="Arabic Emirates" />
+              ><img src="/assets/uae.png" alt="Arabic Emirates" />
               <div>
                 <strong>Arabic Emirates</strong><span>shopname.ae</span>
               </div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/australia.png" alt="Australia" />
+              ><img src="/assets/australia.png" alt="Australia" />
               <div><strong>Australia</strong><span>shopname.ae</span></div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/usa.png" alt="United States" />
+              ><img src="/assets/usa.png" alt="United States" />
               <div>
                 <strong>United States</strong><span>shopname.ae</span>
               </div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/russia.png" alt="Russia" />
+              ><img src="/assets/russia.png" alt="Russia" />
               <div><strong>Russia</strong><span>shopname.ru</span></div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/italy.png" alt="Italy" />
+              ><img src="/assets/italy.png" alt="Italy" />
               <div><strong>Italy</strong><span>shopname.it</span></div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/denmark.png" alt="Denmark" />
+              ><img src="/assets/denmark.png" alt="Denmark" />
               <div><strong>Denmark</strong><span>denmark.com.dk</span></div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/france.png" alt="France" />
+              ><img src="/assets/france.png" alt="France" />
               <div><strong>France</strong><span>shopname.com.fr</span></div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/uae.png" alt="Arabic Emirates" />
+              ><img src="/assets/uae.png" alt="Arabic Emirates" />
               <div>
                 <strong>Arabic Emirates</strong><span>shopname.ae</span>
               </div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/china.png" alt="China" />
+              ><img src="/assets/china.png" alt="China" />
               <div><strong>China</strong><span>shopname.ae</span></div></a
             >
             <a class="region-item" href="#"
-              ><img src="assets/uk.png" alt="Great Britain" />
+              ><img src="/assets/uk.png" alt="Great Britain" />
               <div>
                 <strong>Great Britain</strong><span>shopname.co.uk</span>
               </div></a
@@ -743,7 +723,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo-colored.jpg" alt="Brand logo" />
+          <img src="/assets/logo-colored.jpg" alt="Brand logo" />
           <p>
             Best information about the company gies here but now lorem ipsum is
           </p>
@@ -791,12 +771,11 @@
         </div>
         <div class="footer-column footer-apps">
           <h3>Get app</h3>
-          <a href="#" class="store-badge"
-            ><span>Download on the</span><strong>App Store</strong></a
-          >
-          <a href="#" class="store-badge google-play"
-            ><span>GET IT ON</span><strong>Google Play</strong></a
-          >
+          <a href="#" class="store-badge">
+            <img src="/assets/Subtract.png" alt="app store"></a>
+          <a href="#" class="store-badge google-play">
+            <img src="/assets/Logo.png" alt="google play">
+          </a>
         </div>
       </div>
 
@@ -804,7 +783,7 @@
         <div class="container footer-bottom-row">
           <p>&copy; 2023 Ecommerce.</p>
           <a href="#" class="language-select"
-            ><img src="assets/usa.png" alt="English" /><span>English</span
+            ><img src="/assets/usa.png" alt="English" /><span>English</span
             ><svg><use href="#i-chevron"></use></svg></a>
         </div>
       </div>

@@ -823,13 +823,26 @@
     margin-bottom: 16px;
   }
 
-  .mobile-detail-cta .detail-buy-button,
-  .mobile-detail-cta .detail-add-button {
+  .mobile-detail-cta .primary-button {
     flex: 1;
-    min-width: 0;
-    height: 56px;
-    border-radius: 14px;
-    font-size: 16px;
+    height: 40px;
+  }
+
+  .mobile-detail-like {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--blue);
+  }
+
+  .mobile-detail-like svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
   }
 
   .mobile-detail-specs {

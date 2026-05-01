@@ -173,12 +173,15 @@
 
 .newsletter h2 {
   margin-bottom: 8px;
+  font-size: 20px !important;
+  line-height: 28px;
 }
 
 .newsletter p {
   margin: 0;
   color: var(--muted);
-  font-size: 20px;
+  font-size: 16px !important;
+  line-height: 24px;
 }
 
 .newsletter-form {
@@ -232,8 +235,8 @@
   margin: 0 0 18px;
   max-width: 270px;
   color: #505050;
-  font-size: 18px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .socials {
@@ -259,14 +262,15 @@
 
 .footer-column h3 {
   margin: 0 0 16px;
-  font-size: 20px;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .footer-column a {
   display: block;
   margin-bottom: 11px;
   color: var(--muted);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .footer-apps .store-badge {
@@ -277,25 +281,9 @@
   margin-bottom: 10px;
   border-radius: 8px;
   background: #111;
-  color: #fff;
   text-align: left;
 }
 
-.store-badge span {
-  font-size: 10px;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
-  opacity: 0.78;
-}
-
-.store-badge strong {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.google-play strong {
-  font-size: 19px;
-}
 
 .footer-bottom {
   background: #eff3f7;
@@ -312,7 +300,8 @@
 .footer-bottom-row p {
   margin: 0;
   color: #606060;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .language-select {
@@ -320,7 +309,7 @@
   align-items: center;
   gap: 8px;
   color: #606060;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .language-select img {

@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ecommerce List View</title>
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/catalog.css">
-  <link rel="stylesheet" href="styles/mobile.css">
-  <script src="scripts/mobile.js" defer></script>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/catalog.css">
+  <link rel="stylesheet" href="/styles/mobile.css">
+  <script src="/scripts/mobile.js" defer></script>
 </head>
 <body class="catalog-page">
   <svg class="icon-defs" aria-hidden="true" focusable="false">
@@ -64,10 +64,10 @@
 
   <header class="mobile-catalog-header mobile-only">
     <div class="mobile-page-bar">
-      <a class="mobile-back-button" href="index.html" aria-label="Back">&larr;</a>
+      <a class="mobile-back-button" href="/index.html" aria-label="Back">&larr;</a>
       <div class="mobile-page-title">Mobile accessory</div>
       <div class="mobile-bar-actions">
-        <a class="mobile-icon-button" href="cart.html" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
+        <a class="mobile-icon-button" href="/cart.html" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
         <a class="mobile-icon-button" href="#" aria-label="Profile"><svg><use href="#i-user"></use></svg></a>
       </div>
     </div>
@@ -86,16 +86,16 @@
       <a class="mobile-toolbar-chip" href="#">Sort: Newest</a>
       <a class="mobile-toolbar-chip" href="#">Filter (3)</a>
       <div class="mobile-view-switch">
-        <a href="gridview.html" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></a>
-        <a class="active" href="listview.html" aria-label="List view"><svg><use href="#i-list"></use></svg></a>
+        <a href="/gridview.html" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></a>
+        <a class="active" href="/listview.html" aria-label="List view"><svg><use href="#i-list"></use></svg></a>
       </div>
     </div>
   </header>
 
   <header class="site-header">
     <div class="container topbar">
-      <a class="brand" href="index.html">
-        <img src="assets/logo-colored.jpg" alt="Brand logo">
+      <a class="brand" href="/index.html">
+        <img src="/assets/logo-colored.jpg" alt="Brand logo">
       </a>
 
       <form class="search-bar" action="#">
@@ -110,7 +110,7 @@
         <a class="tool-link" href="#"><svg><use href="#i-user"></use></svg><span>Profile</span></a>
         <a class="tool-link" href="#"><svg><use href="#i-message"></use></svg><span>Message</span></a>
         <a class="tool-link" href="#"><svg><use href="#i-heart"></use></svg><span>Orders</span></a>
-        <a class="tool-link" href="cart.html"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
+        <a class="tool-link" href="/cart.html"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
       </div>
     </div>
 
@@ -127,7 +127,7 @@
 
         <div class="nav-meta">
           <a href="#" class="nav-with-chevron">English, USD <svg><use href="#i-chevron"></use></svg></a>
-          <a href="#" class="ship-link">Ship to <img src="assets/germany.png" alt="Germany flag"><svg><use href="#i-chevron"></use></svg></a>
+          <a href="#" class="ship-link">Ship to <img src="/assets/germany.png" alt="Germany flag"><svg><use href="#i-chevron"></use></svg></a>
         </div>
       </div>
     </div>
@@ -187,8 +187,8 @@
               <span class="price-thumb price-thumb-end"></span>
             </div>
             <div class="price-inputs">
-              <label><span>Min</span><input type="text" value="0"></label>
-              <label><span>Max</span><input type="text" value="999999"></label>
+              <div class="min-max"><label><span>Min</span><input type="text" value="0"></label></div>
+              <div class="min-max"><label><span>Max</span><input type="text" value="999999"></label></div>
             </div>
             <button class="secondary-button filter-apply">Apply</button>
           </section>
@@ -219,89 +219,94 @@
                 <option>Featured</option>
               </select>
               <div class="view-switch">
-                <a class="view-button" href="gridview.html" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></a>
-                <a class="view-button active" href="listview.html" aria-label="List view"><svg><use href="#i-list"></use></svg></a>
+                <a class="view-button" href="/gridview.html" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></a>
+                <a class="view-button active" href="/listview.html" aria-label="List view"><svg><use href="#i-list"></use></svg></a>
               </div>
             </div>
           </div>
 
           <div class="catalog-list">
             <article class="list-card card">
-              <div class="list-card-media"><img src="assets/red-mobile.jpg" alt="Red mobile"></div>
+              <div class="list-card-media">
+                <img src="/assets/red-mobile.jpg" alt="Red mobile">
+              </div>
               <div class="list-card-content">
                 <h3>Canon Cmera EOS 2000, Black 10x zoom</h3>
-                <div class="list-price-row"><strong>$998.00</strong><span>$1128.00</span></div>
+                <div class="list-price-row">
+                  <strong>$998.00</strong>
+                  <span>$1128.00</span>
+                </div>
                 <div class="list-meta"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span><span class="orders-dot"></span><span>154 orders</span><span class="orders-dot"></span><span class="shipping">Free Shipping</span></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                <a class="details-link" href="detail.html">View details</a>
+                <a class="details-link" href="/detail.html">View details</a>
               </div>
               <button class="wish-button wish-button-list" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button>
-              <a class="card-overlay-link" href="detail.html" aria-label="View product details"></a>
+              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
             </article>
 
             <article class="list-card card">
-              <div class="list-card-media"><img src="assets/black-mobile.jpg" alt="Black mobile"></div>
+              <div class="list-card-media"><img src="/assets/black-mobile.jpg" alt="Black mobile"></div>
               <div class="list-card-content">
                 <h3>GoPro HERO6 4K Action Camera - Black</h3>
                 <div class="list-price-row"><strong>$998.00</strong></div>
                 <div class="list-meta"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span><span class="orders-dot"></span><span>154 orders</span><span class="orders-dot"></span><span class="shipping">Free Shipping</span></div>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</p>
-                <a class="details-link" href="detail.html">View details</a>
+                <a class="details-link" href="/detail.html">View details</a>
               </div>
               <button class="wish-button wish-button-list" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button>
-              <a class="card-overlay-link" href="detail.html" aria-label="View product details"></a>
+              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
             </article>
 
             <article class="list-card card">
-              <div class="list-card-media"><img src="assets/tablet.jpg" alt="Tablet"></div>
+              <div class="list-card-media"><img src="/assets/tablet.jpg" alt="Tablet"></div>
               <div class="list-card-content">
                 <h3>GoPro HERO6 4K Action Camera - Black</h3>
                 <div class="list-price-row"><strong>$998.00</strong></div>
                 <div class="list-meta"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span><span class="orders-dot"></span><span>154 orders</span><span class="orders-dot"></span><span class="shipping">Free Shipping</span></div>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</p>
-                <a class="details-link" href="detail.html">View details</a>
+                <a class="details-link" href="/detail.html">View details</a>
               </div>
               <button class="wish-button wish-button-list" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button>
-              <a class="card-overlay-link" href="detail.html" aria-label="View product details"></a>
+              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
             </article>
 
             <article class="list-card card">
-              <div class="list-card-media"><img src="assets/laptop.jpg" alt="Laptop"></div>
+              <div class="list-card-media"><img src="/assets/laptop.jpg" alt="Laptop"></div>
               <div class="list-card-content">
                 <h3>GoPro HERO6 4K Action Camera - Black</h3>
                 <div class="list-price-row"><strong>$998.00</strong></div>
                 <div class="list-meta"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span><span class="orders-dot"></span><span>154 orders</span><span class="orders-dot"></span><span class="shipping">Free Shipping</span></div>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</p>
-                <a class="details-link" href="detail.html">View details</a>
+                <a class="details-link" href="/detail.html">View details</a>
               </div>
               <button class="wish-button wish-button-list" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button>
-              <a class="card-overlay-link" href="detail.html" aria-label="View product details"></a>
+              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
             </article>
 
             <article class="list-card card">
-              <div class="list-card-media"><img src="assets/smart-watch.jpg" alt="Smart watch"></div>
+              <div class="list-card-media"><img src="/assets/smart-watch.jpg" alt="Smart watch"></div>
               <div class="list-card-content">
                 <h3>GoPro HERO6 4K Action Camera - Black</h3>
                 <div class="list-price-row"><strong>$998.00</strong><span>$1128.00</span></div>
                 <div class="list-meta"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span><span class="orders-dot"></span><span>154 orders</span><span class="orders-dot"></span><span class="shipping">Free Shipping</span></div>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</p>
-                <a class="details-link" href="detail.html">View details</a>
+                <a class="details-link" href="/detail.html">View details</a>
               </div>
               <button class="wish-button wish-button-list" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button>
-              <a class="card-overlay-link" href="detail.html" aria-label="View product details"></a>
+              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
             </article>
 
             <article class="list-card card">
-              <div class="list-card-media"><img src="assets/white-headphones.jpg" alt="White headphones"></div>
+              <div class="list-card-media"><img src="/assets/white-headphones.jpg" alt="White headphones"></div>
               <div class="list-card-content">
                 <h3>GoPro HERO6 4K Action Camera - Black</h3>
                 <div class="list-price-row"><strong>$998.00</strong></div>
                 <div class="list-meta"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span><span class="orders-dot"></span><span>154 orders</span><span class="orders-dot"></span><span class="shipping">Free Shipping</span></div>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</p>
-                <a class="details-link" href="detail.html">View details</a>
+                <a class="details-link" href="/detail.html">View details</a>
               </div>
               <button class="wish-button wish-button-list" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button>
-              <a class="card-overlay-link" href="detail.html" aria-label="View product details"></a>
+              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
             </article>
           </div>
 
@@ -321,9 +326,9 @@
           <section class="mobile-similar-strip mobile-only">
             <h2>You may also like</h2>
             <div class="mobile-similar-grid">
-              <a class="mobile-similar-card" href="detail.html"><img src="assets/blue-backpack.jpg" alt="Blue backpack"><strong>$10.30</strong><span>Solid Backpack blue jeans large size</span></a>
-              <a class="mobile-similar-card" href="detail.html"><img src="assets/smart-watch.jpg" alt="Smart watch"><strong>$10.30</strong><span>T-shirts with multiple colors, for men</span></a>
-              <a class="mobile-similar-card" href="detail.html"><img src="assets/brown-jacket.jpg" alt="Brown jacket"><strong>$10.30</strong><span>T-shirts with multiple colors, for men</span></a>
+              <a class="mobile-similar-card" href="/detail.html"><img src="/assets/blue-backpack.jpg" alt="Blue backpack"><strong>$10.30</strong><span>Solid Backpack blue jeans large size</span></a>
+              <a class="mobile-similar-card" href="/detail.html"><img src="/assets/smart-watch.jpg" alt="Smart watch"><strong>$10.30</strong><span>T-shirts with multiple colors, for men</span></a>
+              <a class="mobile-similar-card" href="/detail.html"><img src="/assets/brown-jacket.jpg" alt="Brown jacket"><strong>$10.30</strong><span>T-shirts with multiple colors, for men</span></a>
             </div>
           </section>
         </section>
@@ -348,7 +353,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo-colored.jpg" alt="Brand logo">
+        <img src="/assets/logo-colored.jpg" alt="Brand logo">
         <p>Best information about the company gies here but now lorem ipsum is</p>
         <div class="socials">
           <a href="#"><svg><use href="#i-facebook"></use></svg></a>
@@ -389,15 +394,17 @@
       </div>
       <div class="footer-column footer-apps">
         <h3>Get app</h3>
-        <a href="#" class="store-badge"><span>Download on the</span><strong>App Store</strong></a>
-        <a href="#" class="store-badge google-play"><span>GET IT ON</span><strong>Google Play</strong></a>
+        <a href="#" class="store-badge">
+            <img src="/assets/Subtract.png" alt="app store"></a>
+        <a href="#" class="store-badge google-play">
+            <img src="/assets/Logo.png" alt="google play"></a>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="container footer-bottom-row">
         <p>&copy; 2023 Ecommerce.</p>
-        <a href="#" class="language-select"><img src="assets/usa.png" alt="English"><span>English</span><svg><use href="#i-chevron"></use></svg></a>
+        <a href="#" class="language-select"><img src="/assets/usa.png" alt="English"><span>English</span><svg><use href="#i-chevron"></use></svg></a>
       </div>
     </div>
   </footer>
