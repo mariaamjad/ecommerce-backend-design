@@ -1,9 +1,14 @@
 
 const express = require('express');
-const app = express();
-
 // helps working with files and directories
 const path = require('path');
+require("dotenv").config();
+
+const connectDB = require('./config/db');
+
+const app = express();
+
+connectDB();
 
 app.use(express.static(path.join(__dirname, "public")));
 
