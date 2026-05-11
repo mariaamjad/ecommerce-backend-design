@@ -7,12 +7,11 @@ A full-stack e-commerce web application built with Node.js, Express, MongoDB, an
 ## 🚀 Features
 
 - **Dynamic product rendering from database**
-- **Product listing page (grid layout)**
+- **Product listing page (grid and list layout)**
 - **Product details page with dynamic routing**
 - **Server-side search functionality (name & category)**
 - **MongoDB database integration using Mongoose**
 - **Responsive design for mobile and desktop**
-- **Database seeding for sample data**
 - **Clean and modular backend structure**
 
 ---
