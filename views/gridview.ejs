@@ -201,8 +201,8 @@
                 <option>Featured</option>
               </select>
               <div class="view-switch">
-                <a class="view-button active" href="/gridview.html" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></a>
-                <a class="view-button" href="/listview.html" aria-label="List view"><svg><use href="#i-list"></use></svg></a>
+                <a class="view-button active" href="/gridview" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></a>
+                <a class="view-button" href="/listview" aria-label="List view"><svg><use href="#i-list"></use></svg></a>
               </div>
             </div>
           </div>
@@ -218,7 +218,29 @@
           </div>
 
           <div class="catalog-grid">
-            <article class="catalog-card card">
+            <% products.forEach(product => { %>
+              <article class="catalog-card card">
+              <div class="catalog-card-media">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+              </div>
+              <div class="catalog-card-body">
+                <div class="catalog-price-row">
+                  <strong>$<%= product.price %></strong>
+                  <span>$<%= product.oldPrice %></span>
+                  <button class="wish-button" aria-label="Add to wishlist">
+                  <svg><use href="#i-heart-outline"></use></svg></button>
+                </div>
+                <div class="catalog-rating">
+                  <span class="stars">★★★★☆</span>
+                  <span class="rating-value"><%= product.rating %></span>
+                </div>
+                <h3><%= product.name %></h3>
+              </div>
+              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
+            </article>
+            <% }); %>
+
+            <!-- <article class="catalog-card card">
               <div class="catalog-card-media">
                 <img src="/assets/red-mobile.jpg" alt="Red mobile">
               </div>
@@ -236,91 +258,7 @@
                 <h3>GoPro HERO6 4K Action Camera - Black</h3>
               </div>
               <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
-
-            <article class="catalog-card card">
-              <div class="catalog-card-media">
-                <img src="/assets/blue-mobile.jpg" alt="Blue mobile">
-              </div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row">
-                  <strong>$99.50</strong>
-                  <span>$1128.00</span>
-                  <button class="wish-button" aria-label="Add to wishlist">
-                    <svg><use href="#i-heart-outline"></use></svg></button>
-                  </div>
-                <div class="catalog-rating">
-                  <span class="stars">★★★★☆</span>
-                  <span class="rating-value rating-value-muted">5.9</span>
-                </div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
-              </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
-
-            <article class="catalog-card card">
-              <div class="catalog-card-media"><img src="/assets/black-mobile.jpg" alt="Black mobile"></div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row"><strong>$99.50</strong><button class="wish-button" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button></div>
-                <div class="catalog-rating"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span></div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
-              </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
-            <article class="catalog-card card">
-              <div class="catalog-card-media"><img src="/assets/tablet.jpg" alt="Tablet"></div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row"><strong>$99.50</strong><span>$1128.00</span><button class="wish-button" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button></div>
-                <div class="catalog-rating"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span></div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
-              </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
-            <article class="catalog-card card">
-              <div class="catalog-card-media"><img src="/assets/camera.jpg" alt="Camera"></div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row"><strong>$99.50</strong><span>$1128.00</span><button class="wish-button" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button></div>
-                <div class="catalog-rating"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span></div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
-              </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
-            <article class="catalog-card card">
-              <div class="catalog-card-media"><img src="/assets/blue-mobile.jpg" alt="Blue mobile"></div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row"><strong>$99.50</strong><button class="wish-button" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button></div>
-                <div class="catalog-rating"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span></div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
-              </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
-            <article class="catalog-card card">
-              <div class="catalog-card-media"><img src="/assets/laptop.jpg" alt="Laptop"></div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row"><strong>$99.50</strong><span>$1128.00</span><button class="wish-button" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button></div>
-                <div class="catalog-rating"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span></div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
-              </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
-            <article class="catalog-card card">
-              <div class="catalog-card-media"><img src="/assets/smart-watch.jpg" alt="Smart watch"></div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row"><strong>$99.50</strong><span>$1128.00</span><button class="wish-button" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button></div>
-                <div class="catalog-rating"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span></div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
-              </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
-            <article class="catalog-card card">
-              <div class="catalog-card-media"><img src="/assets/red-mobile.jpg" alt="Red mobile"></div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row"><strong>$99.50</strong><button class="wish-button" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button></div>
-                <div class="catalog-rating"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span></div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
-              </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
-            </article>
+            </article> -->
           </div>
 
           <div class="catalog-pagination">
@@ -363,63 +301,6 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="/assets/logo-colored.jpg" alt="Brand logo">
-        <p>Best information about the company gies here but now lorem ipsum is</p>
-        <div class="socials">
-          <a href="#"><svg><use href="#i-facebook"></use></svg></a>
-          <a href="#"><svg><use href="#i-twitter"></use></svg></a>
-          <a href="#"><svg><use href="#i-linkedin"></use></svg></a>
-          <a href="#"><svg><use href="#i-instagram"></use></svg></a>
-          <a href="#"><svg><use href="#i-youtube"></use></svg></a>
-        </div>
-      </div>
-
-      <div class="footer-column">
-        <h3>About</h3>
-        <a href="#">About Us</a>
-        <a href="#">Find store</a>
-        <a href="#">Categories</a>
-        <a href="#">Blogs</a>
-      </div>
-      <div class="footer-column">
-        <h3>Partnership</h3>
-        <a href="#">About Us</a>
-        <a href="#">Find store</a>
-        <a href="#">Categories</a>
-        <a href="#">Blogs</a>
-      </div>
-      <div class="footer-column">
-        <h3>Information</h3>
-        <a href="#">Help Center</a>
-        <a href="#">Money Refund</a>
-        <a href="#">Shipping</a>
-        <a href="#">Contact us</a>
-      </div>
-      <div class="footer-column">
-        <h3>For users</h3>
-        <a href="#">Login</a>
-        <a href="#">Register</a>
-        <a href="#">Settings</a>
-        <a href="#">My Orders</a>
-      </div>
-      <div class="footer-column footer-apps">
-        <h3>Get app</h3>
-        <a href="#" class="store-badge">
-            <img src="/assets/Subtract.png" alt="app store"></a>
-        <a href="#" class="store-badge google-play">
-            <img src="/assets/Logo.png" alt="google play"></a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container footer-bottom-row">
-        <p>&copy; 2023 Ecommerce.</p>
-        <a href="#" class="language-select"><img src="/assets/usa.png" alt="English"><span>English</span><svg><use href="#i-chevron"></use></svg></a>
-      </div>
-    </div>
-  </footer>
+  <%- include('partials/footer') %>
 </body>
 </html>
