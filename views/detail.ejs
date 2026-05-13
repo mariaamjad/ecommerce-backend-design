@@ -83,12 +83,24 @@
         <img src="/assets/logo-colored.jpg" alt="Brand logo">
       </a>
 
-      <form class="search-bar" action="#">
-        <input type="search" placeholder="Search">
-        <select aria-label="Select category">
-          <option>All category</option>
-        </select>
-        <button type="submit">Search</button>
+      <form class="search-bar" action="/products" method="GET">
+          <input type="search"
+          name="search" placeholder="Search"
+          value="<%= search || '' %>" />
+
+          <select name="category" aria-label="Select category">
+            <option value="">All category</option>
+            <option value="Automobiles">Automobiles</option>
+            <option value="Clothes and wear">Clothes and wear</option>
+            <option value="Home interiors">Home interiors</option>
+            <option value="Computer and tech">Computer and tech</option>
+            <option value="Tools, equipments">Tools, equipments</option>
+            <option value="Sports and outdoor">Sports and outdoor</option>
+            <option value="Animal and pets">Animal and pets</option>
+            <option value="Tools, equipments">Machinery tools</option>
+            <option value="Books">Other</option>
+          </select>
+          <button type="submit">Search</button>
       </form>
 
       <div class="header-tools">

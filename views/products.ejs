@@ -71,9 +71,9 @@
         <a class="mobile-icon-button" href="#" aria-label="Profile"><svg><use href="#i-user"></use></svg></a>
       </div>
     </div>
-    <form class="mobile-search-bar" action="#">
+    <form class="mobile-search-bar" action="/products" method="GET">
       <svg><use href="#i-search"></use></svg>
-      <input type="search" placeholder="Search">
+      <input type="search" name="search" placeholder="Search" value="<%= search || '' %>">
     </form>
     <div class="mobile-category-pills">
       <a class="mobile-category-pill" href="#">Tablets</a>
@@ -98,12 +98,24 @@
         <img src="/assets/logo-colored.jpg" alt="Brand logo">
       </a>
 
-      <form class="search-bar" action="#">
-        <input type="search" placeholder="Search">
-        <select aria-label="Select category">
-          <option>All category</option>
-        </select>
-        <button type="submit">Search</button>
+      <form class="search-bar" action="/products" method="GET">
+          <input type="search"
+          name="search" placeholder="Search"
+          value="<%= search || '' %>" />
+
+          <select name="category" aria-label="Select category">
+            <option value="">All category</option>
+            <option value="Automobiles">Automobiles</option>
+            <option value="Clothes and wear">Clothes and wear</option>
+            <option value="Home interiors">Home interiors</option>
+            <option value="Computer and tech">Computer and tech</option>
+            <option value="Tools, equipments">Tools, equipments</option>
+            <option value="Sports and outdoor">Sports and outdoor</option>
+            <option value="Animal and pets">Animal and pets</option>
+            <option value="Tools, equipments">Machinery tools</option>
+            <option value="Books">Other</option>
+          </select>
+          <button type="submit">Search</button>
       </form>
 
       <div class="header-tools">
@@ -117,8 +129,8 @@
     <div class="nav-strip">
       <div class="container nav-row">
         <nav class="main-nav">
-          <a href="#" class="menu-trigger"><svg><use href="#i-menu"></use></svg><span>All category</span></a>
-          <a href="#">Hot offers</a>
+          <a href="/" class="menu-trigger"><svg><use href="#i-menu"></use></svg><span>All category</span></a>
+          <a href="/products">Hot offers</a>
           <a href="#">Gift boxes</a>
           <a href="#">Projects</a>
           <a href="#">Menu item</a>
@@ -212,15 +224,27 @@
 
         <section class="catalog-content">
           <div class="catalog-toolbar card">
-            <p>12,911 items in <strong>Mobile accessory</strong></p>
+            <p><%= totalProducts %> items in <strong><%= category || 'All category' %></strong></p>
             <div class="toolbar-controls">
               <label class="toolbar-check"><input checked type="checkbox"> Verified only</label>
-              <select class="catalog-select" aria-label="Sort products">
-                <option>Featured</option>
+              <select name="sort" class="catalog-select" aria-label="Sort products">
+                <option value="all">All</option>
+                <option value="featured">Featured</option>
               </select>
               <div class="view-switch" data-view-switch>
-                <button class="view-button" type="button" data-view-button="grid" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></button>
-                <button class="view-button active" type="button" data-view-button="list" aria-label="List view"><svg><use href="#i-list"></use></svg></button>
+                <a class="view-button"
+                   href="/products?page=1&view=grid&search=<%= search || '' %>&category=<%= category || '' %>"
+                   aria-label="Grid view">
+                  <svg><use href="#i-grid"></use></svg>
+                </a>
+              
+                <a class="view-button"
+                   href="/products?page=1&view=list&search=<%= search || '' %>&category=<%= category || '' %>"
+                   aria-label="List view">
+                  <svg><use href="#i-list"></use></svg>
+                </a>
+                <!-- <button class="view-button" type="button" data-view-button="grid" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></button>
+                <button class="view-button active" type="button" data-view-button="list" aria-label="List view"><svg><use href="#i-list"></use></svg></button> -->
               </div>
             </div>
           </div>
@@ -235,7 +259,8 @@
             <a class="clear-link" href="#">Clear all filter</a>
           </div>
 
-          <div class="catalog-list" data-products-layout="list">
+          <!-- <div class="catalog-list" data-products-layout="list"> -->
+          <div class="catalog-list" data-products-layout="list" <%= view === 'grid' ? 'hidden' : '' %>>
             <% products.forEach(product => { %>
               <article class="list-card card">
               <div class="list-card-media">
@@ -277,7 +302,8 @@
             </article> -->
           </div>
 
-          <div class="catalog-grid" data-products-layout="grid" hidden>
+          <!-- <div class="catalog-grid" data-products-layout="grid" hidden> -->
+          <div class="catalog-grid" data-products-layout="grid" <%= view === 'list' ? 'hidden' : '' %>>
             <% products.forEach(product => { %>
               <article class="catalog-card card">
                 <div class="catalog-card-media">
@@ -303,15 +329,34 @@
           </div>
 
           <div class="catalog-pagination">
-            <select class="catalog-select catalog-select-small" aria-label="Items per page">
+            <!-- <select class="catalog-select catalog-select-small" aria-label="Items per page">
               <option>Show 10</option>
-            </select>
+            </select> -->
             <div class="pagination-buttons">
-              <a href="#">&lsaquo;</a>
+              <% if (page > 1) { %>
+              <a href="/products?page=<%= page - 1 %>&view=<%= view %>&search=<%= search || '' %>&category=<%= category || '' %>">
+                &lsaquo;
+              </a>
+              <% } %>
+
+              <% for(let i = 1; i <= totalPages; i++) { %>
+                <a 
+                  href="/products?page=<%= i %>&view=<%= view %>&search=<%= search || '' %>&category=<%= category || '' %>"
+                  class="<%= page === i ? 'active' : '' %>">
+                  <%= i %>
+                </a>
+              <% } %>
+
+              <% if (page < totalPages) { %>
+                <a href="/products?page=<%= page + 1 %>&view=<%= view %>&search=<%= search || '' %>&category=<%= category || '' %>">
+                  &rsaquo;
+                </a>
+              <% } %>
+              <!-- <a href="#">&lsaquo;</a>
               <a href="#">1</a>
               <a class="active" href="#">2</a>
               <a href="#">3</a>
-              <a href="#">&rsaquo;</a>
+              <a href="#">&rsaquo;</a> -->
             </div>
           </div>
 
@@ -351,7 +396,7 @@
   </main>
 
   <%- include('partials/footer') %>
-  <script>
+  <!-- <script>
     (() => {
       const viewButtons = document.querySelectorAll("[data-view-button]");
       const layouts = document.querySelectorAll("[data-products-layout]");
@@ -379,6 +424,6 @@
 
       setView("list");
     })();
-  </script>
+  </script> -->
 </body>
 </html>
