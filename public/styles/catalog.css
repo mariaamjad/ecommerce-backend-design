@@ -5,6 +5,10 @@
   align-items: start;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .catalog-sidebar {
   display: grid;
   gap: 16px;
@@ -142,8 +146,10 @@
   place-items: center;
   width: 44px;
   height: 40px;
+  border: 0;
   background: #fff;
   color: #505050;
+  cursor: pointer;
 }
 
 .view-button + .view-button {

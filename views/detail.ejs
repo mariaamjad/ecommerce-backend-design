@@ -69,9 +69,9 @@
 
   <header class="mobile-detail-header mobile-only">
     <div class="mobile-page-bar">
-      <a class="mobile-back-button" href="/listview.html" aria-label="Back">&larr;</a>
+      <a class="mobile-back-button" href="/products" aria-label="Back">&larr;</a>
       <div class="mobile-bar-actions">
-        <a class="mobile-icon-button" href="/cart.html" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
+        <a class="mobile-icon-button" href="/cart" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
         <a class="mobile-icon-button" href="#" aria-label="Profile"><svg><use href="#i-user"></use></svg></a>
       </div>
     </div>
@@ -79,7 +79,7 @@
 
   <header class="site-header">
     <div class="container topbar">
-      <a class="brand" href="/index.html">
+      <a class="brand" href="/">
         <img src="/assets/logo-colored.jpg" alt="Brand logo">
       </a>
 
@@ -95,7 +95,7 @@
         <a class="tool-link" href="#"><svg><use href="#i-user"></use></svg><span>Profile</span></a>
         <a class="tool-link" href="#"><svg><use href="#i-message"></use></svg><span>Message</span></a>
         <a class="tool-link" href="#"><svg><use href="#i-heart"></use></svg><span>Orders</span></a>
-        <a class="tool-link" href="/cart.html"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
+        <a class="tool-link" href="/cart"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
       </div>
     </div>
 
@@ -133,15 +133,16 @@
       <section class="detail-hero card">
         <div class="detail-gallery">
           <div class="detail-main-image">
-            <img src="/assets/tshirt-grey.png" alt="Gray polo shirt">
+            <img src="<%= product.image %>" alt="<%= product.name %>">
+            <!-- <img src="/assets/tshirt-grey.png" alt="Gray polo shirt"> -->
           </div>
           <div class="detail-thumbs">
-            <button class="detail-thumb active"><img src="/assets/detail-thumb-1.png" alt="Front thumbnail"></button>
-            <button class="detail-thumb"><img src="/assets/detail-thumb-2.png" alt="White thumbnail"></button>
-            <button class="detail-thumb"><img src="/assets/detail-thumb-3.png" alt="Collar thumbnail"></button>
-            <button class="detail-thumb"><img src="/assets/detail-thumb-4.png" alt="Model thumbnail"></button>
-            <button class="detail-thumb"><img src="/assets/detail-thumb-5.png" alt="Back thumbnail"></button>
-            <button class="detail-thumb"><img src="/assets/detail-thumb-6.png" alt="Small thumbnail"></button>
+            <button class="detail-thumb active"><img src="<%= product.image %>" alt="Front thumbnail"></button>
+            <button class="detail-thumb"><img src="<%= product.image %>" alt="White thumbnail"></button>
+            <button class="detail-thumb"><img src="<%= product.image %>" alt="Collar thumbnail"></button>
+            <button class="detail-thumb"><img src="<%= product.image %>" alt="Model thumbnail"></button>
+            <button class="detail-thumb"><img src="<%= product.image %>" alt="Back thumbnail"></button>
+            <button class="detail-thumb"><img src="<%= product.image %>" alt="Small thumbnail"></button>
           </div>
         </div>
 
@@ -153,35 +154,35 @@
             <span class="detail-meta-dot"></span>
             <span class="detail-meta-item"><svg><use href="#i-cart"></use></svg> 154 sold</span>
           </div>
-          <h1>Product name goes here</h1>
+          <h1><%= product.name %></h1>
           <div class="mobile-detail-price">
-            <strong>$129.95</strong>
-            <span>(50-100 pcs)</span>
+            <strong>$<%= product.price %></strong>
+            <span><%= product.stock %>pcs</span>
           </div>
           <div class="mobile-detail-cta">
-            <a href="/cart.html" class="primary-button">Send inquiry</a>
-            <a href="/cart.html" class="mobile-detail-like" aria-label="Save for later"><svg><use href="#i-heart-outline"></use></svg></a>
+            <a href="/cart" class="primary-button">Send inquiry</a>
+            <a href="/cart" class="mobile-detail-like" aria-label="Save for later"><svg><use href="#i-heart-outline"></use></svg></a>
           </div>
           <dl class="mobile-detail-specs">
             <dt>Condition</dt><dd>Brand new</dd>
             <dt>Material</dt><dd>Plastic</dd>
-            <dt>Category</dt><dd>Electronics, gadgets</dd>
+            <dt>Category</dt><dd><%= product.category %></dd>
             <dt>Item num</dt><dd>23421</dd>
           </dl>
-          <p class="mobile-detail-copy">Info about edu item is an ideal companion for anyone engaged in learning. The drone provides precise and ...</p>
-          <a class="mobile-read-more" href="#">Read more</a>
+          <p class="mobile-detail-copy"><%= product.description %></p>
+          <!-- <a class="mobile-read-more" href="#">Read more</a> -->
         </div>
 
         <div class="detail-info">
           <div class="detail-stock"><svg><use href="#i-check"></use></svg> In stock</div>
-          <h1>Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h1>
+          <h1><%= product.name %></h1>
           <div class="detail-meta-row">
             <span class="stars">★★★★☆</span>
-            <span class="rating-value">9.3</span>
+            <span class="rating-value"><%= product.rating %></span>
             <span class="detail-meta-dot"></span>
-            <span class="detail-meta-item"><svg><use href="#i-chat"></use></svg> 32 reviews</span>
+            <span class="detail-meta-item"><svg><use href="#i-chat"></use></svg><%= product.reviews %> reviews</span>
             <span class="detail-meta-dot"></span>
-            <span class="detail-meta-item"><svg><use href="#i-cart"></use></svg> 154 sold</span>
+            <span class="detail-meta-item"><svg><use href="#i-cart"></use></svg><%= product.reviews %> sold</span>
           </div>
 
           <div class="detail-pricing">
@@ -210,8 +211,8 @@
           </dl>
 
           <div class="detail-action-buttons">
-            <a href="/cart.html" class="detail-buy-button">Buy Now</a>
-            <a href="/cart.html" class="detail-add-button">Add to Cart</a>
+            <a href="/cart" class="detail-buy-button">Buy Now</a>
+            <a href="/cart" class="detail-add-button">Add to Cart</a>
           </div>
         </div>
 
@@ -245,8 +246,8 @@
           </div>
 
           <div class="detail-description-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-            <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p><%= product.description %>. <%= product.description %></p>
+            <p><%= product.description %></p>
 
             <div class="detail-table">
               <div><span>Model</span><strong>#8786867</strong></div>

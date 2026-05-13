@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ecommerce Grid View</title>
+  <title>Products</title>
   <link rel="stylesheet" href="/styles/base.css">
   <link rel="stylesheet" href="/styles/layout.css">
   <link rel="stylesheet" href="/styles/catalog.css">
@@ -64,10 +64,10 @@
 
   <header class="mobile-catalog-header mobile-only">
     <div class="mobile-page-bar">
-      <a class="mobile-back-button" href="/index.html" aria-label="Back">&larr;</a>
+      <a class="mobile-back-button" href="/" aria-label="Back">&larr;</a>
       <div class="mobile-page-title">Mobile accessory</div>
       <div class="mobile-bar-actions">
-        <a class="mobile-icon-button" href="/cart.html" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
+        <a class="mobile-icon-button" href="/cart" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
         <a class="mobile-icon-button" href="#" aria-label="Profile"><svg><use href="#i-user"></use></svg></a>
       </div>
     </div>
@@ -85,16 +85,16 @@
     <div class="mobile-toolbar-row">
       <a class="mobile-toolbar-chip" href="#">Sort: Newest</a>
       <a class="mobile-toolbar-chip" href="#">Filter (3)</a>
-      <div class="mobile-view-switch">
-        <a class="active" href="/gridview.html" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></a>
-        <a href="/listview.html" aria-label="List view"><svg><use href="#i-list"></use></svg></a>
+      <div class="mobile-view-switch" data-view-switch>
+        <button type="button" data-view-button="grid" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></button>
+        <button class="active" type="button" data-view-button="list" aria-label="List view"><svg><use href="#i-list"></use></svg></button>
       </div>
     </div>
   </header>
 
   <header class="site-header">
     <div class="container topbar">
-      <a class="brand" href="/index.html">
+      <a class="brand" href="/">
         <img src="/assets/logo-colored.jpg" alt="Brand logo">
       </a>
 
@@ -110,7 +110,7 @@
         <a class="tool-link" href="#"><svg><use href="#i-user"></use></svg><span>Profile</span></a>
         <a class="tool-link" href="#"><svg><use href="#i-message"></use></svg><span>Message</span></a>
         <a class="tool-link" href="#"><svg><use href="#i-heart"></use></svg><span>Orders</span></a>
-        <a class="tool-link" href="/cart.html"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
+        <a class="tool-link" href="/cart"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
       </div>
     </div>
 
@@ -160,17 +160,17 @@
 
           <section class="filter-group">
             <div class="filter-title">Brands <svg><use href="#i-chevron"></use></svg></div>
-            <label class="check-row"><input checked type="checkbox"> Samsung</label>
-            <label class="check-row"><input checked type="checkbox"> Apple</label>
+            <label class="check-row"><input type="checkbox"> Samsung</label>
+            <label class="check-row"><input type="checkbox"> Apple</label>
             <label class="check-row"><input type="checkbox"> Huawei</label>
-            <label class="check-row"><input checked type="checkbox"> Pocco</label>
+            <label class="check-row"><input type="checkbox"> Pocco</label>
             <label class="check-row"><input type="checkbox"> Lenovo</label>
             <a class="see-all" href="#">See all</a>
           </section>
 
           <section class="filter-group">
             <div class="filter-title">Features <svg><use href="#i-chevron"></use></svg></div>
-            <label class="check-row"><input checked type="checkbox"> Metallic</label>
+            <label class="check-row"><input type="checkbox"> Metallic</label>
             <label class="check-row"><input type="checkbox"> Plastic cover</label>
             <label class="check-row"><input type="checkbox"> 8GB Ram</label>
             <label class="check-row"><input type="checkbox"> Super power</label>
@@ -178,17 +178,35 @@
             <a class="see-all" href="#">See all</a>
           </section>
 
-          <section class="filter-group filter-group-collapsed">
+          <section class="filter-group">
             <div class="filter-title">Price range <svg><use href="#i-chevron"></use></svg></div>
+            <div class="price-slider">
+              <div class="price-slider-track"></div>
+              <div class="price-slider-active"></div>
+              <span class="price-thumb price-thumb-start"></span>
+              <span class="price-thumb price-thumb-end"></span>
+            </div>
+            <div class="price-inputs">
+              <div class="min-max"><label><span>Min</span><input type="text" value="0"></label></div>
+              <div class="min-max"><label><span>Max</span><input type="text" value="999999"></label></div>
+            </div>
+            <button class="secondary-button filter-apply">Apply</button>
           </section>
-          <section class="filter-group filter-group-collapsed">
+
+          <section class="filter-group">
             <div class="filter-title">Condition <svg><use href="#i-chevron"></use></svg></div>
+            <label class="radio-row"><input checked type="radio" name="condition"> Any</label>
+            <label class="radio-row"><input type="radio" name="condition"> Refurbished</label>
+            <label class="radio-row"><input type="radio" name="condition"> Brand new</label>
+            <label class="radio-row"><input type="radio" name="condition"> Old items</label>
           </section>
-          <section class="filter-group filter-group-collapsed">
+
+          <section class="filter-group">
             <div class="filter-title">Ratings <svg><use href="#i-chevron"></use></svg></div>
-          </section>
-          <section class="filter-group filter-group-collapsed">
-            <div class="filter-title">Manufacturer <svg><use href="#i-chevron"></use></svg></div>
+            <label class="check-row rating-check"><input type="checkbox"><span class="stars">★★★★★</span></label>
+            <label class="check-row rating-check"><input type="checkbox"><span class="stars">★★★★☆</span></label>
+            <label class="check-row rating-check"><input type="checkbox"><span class="stars">★★★☆☆</span></label>
+            <label class="check-row rating-check"><input type="checkbox"><span class="stars">★★☆☆☆</span></label>
           </section>
         </aside>
 
@@ -196,18 +214,18 @@
           <div class="catalog-toolbar card">
             <p>12,911 items in <strong>Mobile accessory</strong></p>
             <div class="toolbar-controls">
-              <label class="toolbar-check"><input type="checkbox"> Verified only</label>
+              <label class="toolbar-check"><input checked type="checkbox"> Verified only</label>
               <select class="catalog-select" aria-label="Sort products">
                 <option>Featured</option>
               </select>
-              <div class="view-switch">
-                <a class="view-button active" href="/gridview" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></a>
-                <a class="view-button" href="/listview" aria-label="List view"><svg><use href="#i-list"></use></svg></a>
+              <div class="view-switch" data-view-switch>
+                <button class="view-button" type="button" data-view-button="grid" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></button>
+                <button class="view-button active" type="button" data-view-button="list" aria-label="List view"><svg><use href="#i-list"></use></svg></button>
               </div>
             </div>
           </div>
 
-          <div class="filter-tags">
+          <div class="filter-tags" data-grid-only hidden>
             <a href="#">Samsung <span>&times;</span></a>
             <a href="#">Apple <span>&times;</span></a>
             <a href="#">Poco <span>&times;</span></a>
@@ -217,48 +235,71 @@
             <a class="clear-link" href="#">Clear all filter</a>
           </div>
 
-          <div class="catalog-grid">
+          <div class="catalog-list" data-products-layout="list">
             <% products.forEach(product => { %>
-              <article class="catalog-card card">
-              <div class="catalog-card-media">
+              <article class="list-card card">
+              <div class="list-card-media">
                 <img src="<%= product.image %>" alt="<%= product.name %>">
               </div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row">
+              <div class="list-card-content">
+                <h3><%= product.name %></h3>
+                <div class="list-price-row">
                   <strong>$<%= product.price %></strong>
                   <span>$<%= product.oldPrice %></span>
-                  <button class="wish-button" aria-label="Add to wishlist">
-                  <svg><use href="#i-heart-outline"></use></svg></button>
                 </div>
-                <div class="catalog-rating">
-                  <span class="stars">★★★★☆</span>
-                  <span class="rating-value"><%= product.rating %></span>
-                </div>
-                <h3><%= product.name %></h3>
+                <div class="list-meta"><span class="stars">★★★★☆</span><span class="rating-value"><%= product.rating %></span>
+                  <span class="orders-dot"></span><span><%= product.reviews %> orders</span><span class="orders-dot"></span>
+                  <span class="shipping">Free Shipping</span></div>
+                <p><%= product.description %></p>
+                <a class="details-link" href="/products/<%= product._id %>">View details</a>
               </div>
-              <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
+              <button class="wish-button wish-button-list" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button>
+              <a class="card-overlay-link" href="/products/<%= product._id %>" aria-label="View product details"></a>
             </article>
             <% }); %>
 
-            <!-- <article class="catalog-card card">
-              <div class="catalog-card-media">
+            <!-- <article class="list-card card">
+              <div class="list-card-media">
                 <img src="/assets/red-mobile.jpg" alt="Red mobile">
               </div>
-              <div class="catalog-card-body">
-                <div class="catalog-price-row">
-                  <strong>$99.50</strong>
+              <div class="list-card-content">
+                <h3>Canon Cmera EOS 2000, Black 10x zoom</h3>
+                <div class="list-price-row">
+                  <strong>$998.00</strong>
                   <span>$1128.00</span>
-                  <button class="wish-button" aria-label="Add to wishlist">
-                  <svg><use href="#i-heart-outline"></use></svg></button>
                 </div>
-                <div class="catalog-rating">
-                  <span class="stars">★★★★☆</span>
-                  <span class="rating-value">7.5</span>
-                </div>
-                <h3>GoPro HERO6 4K Action Camera - Black</h3>
+                <div class="list-meta"><span class="stars">★★★★☆</span><span class="rating-value">7.5</span><span class="orders-dot"></span><span>154 orders</span><span class="orders-dot"></span><span class="shipping">Free Shipping</span></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <a class="details-link" href="/detail.html">View details</a>
               </div>
+              <button class="wish-button wish-button-list" aria-label="Add to wishlist"><svg><use href="#i-heart-outline"></use></svg></button>
               <a class="card-overlay-link" href="/detail.html" aria-label="View product details"></a>
             </article> -->
+          </div>
+
+          <div class="catalog-grid" data-products-layout="grid" hidden>
+            <% products.forEach(product => { %>
+              <article class="catalog-card card">
+                <div class="catalog-card-media">
+                  <img src="<%= product.image %>" alt="<%= product.name %>">
+                </div>
+                <div class="catalog-card-body">
+                  <div class="catalog-price-row">
+                    <strong>$<%= product.price %></strong>
+                    <span>$<%= product.oldPrice %></span>
+                    <button class="wish-button" aria-label="Add to wishlist">
+                      <svg><use href="#i-heart-outline"></use></svg>
+                    </button>
+                  </div>
+                  <div class="catalog-rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="rating-value"><%= product.rating %></span>
+                  </div>
+                  <h3><%= product.name %></h3>
+                </div>
+                <a class="card-overlay-link" href="/products/<%= product._id %>" aria-label="View product details"></a>
+              </article>
+            <% }); %>
           </div>
 
           <div class="catalog-pagination">
@@ -277,9 +318,17 @@
           <section class="mobile-similar-strip mobile-only">
             <h2>You may also like</h2>
             <div class="mobile-similar-grid">
-              <a class="mobile-similar-card" href="detail.html"><img src="/assets/blue-backpack.jpg" alt="Blue backpack"><strong>$10.30</strong><span>Solid Backpack blue jeans large size</span></a>
-              <a class="mobile-similar-card" href="detail.html"><img src="/assets/smart-watch.jpg" alt="Smart watch"><strong>$10.30</strong><span>T-shirts with multiple colors, for men</span></a>
-              <a class="mobile-similar-card" href="detail.html"><img src="/assets/brown-jacket.jpg" alt="Brown jacket"><strong>$10.30</strong><span>T-shirts with multiple colors, for men</span></a>
+              <% products.slice(0, 3).forEach(product => { %>
+                <a class="mobile-similar-card" href="/products/<%= product._id %>">
+                  <img src="<%= product.image %>" alt="<%= product.name %>">
+                  <strong>$<%= product.price %></strong>
+                  <span><%= product.name %></span>
+                </a>
+              <% }) %>
+
+              <!-- <a class="mobile-similar-card" href="/products/"><img src="/assets/blue-backpack.jpg" alt="Blue backpack"><strong>$10.30</strong><span>Solid Backpack blue jeans large size</span></a>
+              <a class="mobile-similar-card" href="/products/"><img src="/assets/smart-watch.jpg" alt="Smart watch"><strong>$10.30</strong><span>T-shirts with multiple colors, for men</span></a>
+              <a class="mobile-similar-card" href="/products/"><img src="/assets/brown-jacket.jpg" alt="Brown jacket"><strong>$10.30</strong><span>T-shirts with multiple colors, for men</span></a> -->
             </div>
           </section>
         </section>
@@ -302,5 +351,34 @@
   </main>
 
   <%- include('partials/footer') %>
+  <script>
+    (() => {
+      const viewButtons = document.querySelectorAll("[data-view-button]");
+      const layouts = document.querySelectorAll("[data-products-layout]");
+      const gridOnly = document.querySelectorAll("[data-grid-only]");
+
+      function setView(view) {
+        layouts.forEach((layout) => {
+          layout.hidden = layout.dataset.productsLayout !== view;
+        });
+
+        gridOnly.forEach((element) => {
+          element.hidden = view !== "grid";
+        });
+
+        viewButtons.forEach((button) => {
+          const isActive = button.dataset.viewButton === view;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+      }
+
+      viewButtons.forEach((button) => {
+        button.addEventListener("click", () => setView(button.dataset.viewButton));
+      });
+
+      setView("list");
+    })();
+  </script>
 </body>
 </html>
