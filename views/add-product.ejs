@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Product</title>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/add-product.css">
+  <link rel="stylesheet" href="/styles/mobile.css">
+  <script src="/scripts/mobile.js" defer></script>
+</head>
+<body class="catalog-page">
+  <svg class="icon-defs" aria-hidden="true" focusable="false">
+    <symbol id="i-user" viewBox="0 0 24 24">
+      <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-4.2 0-7 2.1-7 5v1h14v-1c0-2.9-2.8-5-7-5z"/>
+    </symbol>
+    <symbol id="i-message" viewBox="0 0 24 24">
+      <path d="M4 5h16v11H7l-3 3V5zm3 4h10v2H7zm0 4h7v2H7z"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 20.7 4.7 13.6a4.8 4.8 0 0 1 6.8-6.8L12 7.3l.5-.5a4.8 4.8 0 1 1 6.8 6.8z"/>
+    </symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24">
+      <path d="M7 6h14l-1.4 7.2a2 2 0 0 1-2 1.6H9.2L8.6 18h10.8v2H8a2 2 0 0 1-2-2l1-8H5V8h2l.5-2zm2.4 11.5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zm8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2z"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24">
+      <path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24">
+      <path d="M13.5 8.4h2V5h-2.3c-2.4 0-3.7 1.4-3.7 4v2H7v3.3h2.5V20H13v-5.7h2.3l.4-3.3H13V9.4c0-.7.2-1 1-1z"/>
+    </symbol>
+    <symbol id="i-twitter" viewBox="0 0 24 24">
+      <path d="M20 7.3a6 6 0 0 1-1.8.5A3.1 3.1 0 0 0 19.6 6a6.2 6.2 0 0 1-2 .8A3.1 3.1 0 0 0 12.4 9a8.8 8.8 0 0 1-6.4-3.2 3.1 3.1 0 0 0 1 4.1A3 3 0 0 1 5.7 9v.1a3.1 3.1 0 0 0 2.5 3 3.1 3.1 0 0 1-1.4.1 3.1 3.1 0 0 0 2.9 2.2A6.3 6.3 0 0 1 5 16a8.9 8.9 0 0 0 4.8 1.4c5.8 0 9-4.8 9-9v-.4A6.3 6.3 0 0 0 20 7.3z"/>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path d="M6.2 8.5a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM4.7 10h3v9.2h-3zm5 0h2.9v1.3h.1a3.2 3.2 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5v4.9h-3v-4.3c0-1 0-2.4-1.5-2.4s-1.8 1.1-1.8 2.3v4.4h-3z"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24">
+      <path d="M7.5 4h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4zm0 2A1.5 1.5 0 0 0 6 7.5v9A1.5 1.5 0 0 0 7.5 18h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 16.5 6zm9.2 1.2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+    </symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24">
+      <path d="M21 8.6a2.7 2.7 0 0 0-1.9-1.9C17.4 6.2 12 6.2 12 6.2s-5.4 0-7.1.5A2.7 2.7 0 0 0 3 8.6a28 28 0 0 0 0 6.8 2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.1.5 7.1.5s5.4 0 7.1-.5a2.7 2.7 0 0 0 1.9-1.9 28 28 0 0 0 0-6.8zM10 15V9l5 3z"/>
+    </symbol>
+  </svg>
+
+  <header class="mobile-catalog-header mobile-only">
+    <div class="mobile-page-bar">
+      <a class="mobile-back-button" href="/products" aria-label="Back">&larr;</a>
+      <div class="mobile-page-title">Add product</div>
+      <div class="mobile-bar-actions">
+        <a class="mobile-icon-button" href="/cart" aria-label="My cart"><svg><use href="#i-cart"></use></svg></a>
+        <a class="mobile-icon-button" href="#" aria-label="Profile"><svg><use href="#i-user"></use></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <header class="site-header">
+    <div class="container topbar">
+      <a class="brand" href="/">
+        <img src="/assets/logo-colored.jpg" alt="Brand logo">
+      </a>
+
+      <form class="search-bar" action="#">
+        <input type="search" placeholder="Search">
+        <select aria-label="Select category">
+          <option>All category</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="header-tools">
+        <a class="tool-link" href="#"><svg><use href="#i-user"></use></svg><span>Profile</span></a>
+        <a class="tool-link" href="#"><svg><use href="#i-message"></use></svg><span>Message</span></a>
+        <a class="tool-link" href="#"><svg><use href="#i-heart"></use></svg><span>Orders</span></a>
+        <a class="tool-link" href="/cart"><svg><use href="#i-cart"></use></svg><span>My cart</span></a>
+      </div>
+    </div>
+
+    <div class="nav-strip">
+      <div class="container nav-row">
+        <nav class="main-nav">
+          <a href="/" class="menu-trigger"><svg><use href="#i-menu"></use></svg><span>All category</span></a>
+          <a href="/products">Products</a>
+          <a href="#">Gift boxes</a>
+          <a href="#">Projects</a>
+          <a href="#">Menu item</a>
+          <a href="#" class="nav-with-chevron">Help <svg><use href="#i-chevron"></use></svg></a>
+        </nav>
+
+        <div class="nav-meta">
+          <a href="#" class="nav-with-chevron">English, USD <svg><use href="#i-chevron"></use></svg></a>
+          <a href="#" class="ship-link">Ship to <img src="/assets/germany.png" alt="Germany flag"><svg><use href="#i-chevron"></use></svg></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container add-product-shell">
+      <section class="add-product-hero card">
+        <div>
+          <p class="add-product-kicker">Inventory</p>
+          <h1>Add product</h1>
+          <p>Create a catalog item with pricing, media, and availability details.</p>
+        </div>
+        <a class="secondary-button" href="/products">View products</a>
+      </section>
+
+      <% if (errors && errors.length > 0) { %>
+        <div class="error-box">
+          <ul>
+            <% errors.forEach(error => { %>
+              <li><%= error %></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } %>
+
+      <form class="add-product-form" action="/products/add" method="POST">
+        <div class="form-panel card">
+          <section class="form-section">
+            <h2>Product details</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Product name">
+              </div>
+
+              <div class="field">
+                <label for="category">Category</label>
+                <select id="category" name="category" >
+                  <option value="">All category</option>
+                  <option value="Automobiles">Automobiles</option>
+                  <option value="Clothes and wear">Clothes and wear</option>
+                  <option value="Home interiors">Home interiors</option>
+                  <option value="Computer and tech">Computer and tech</option>
+                  <option value="Tools, equipments">Tools, equipments</option>
+                  <option value="Sports and outdoor">Sports and outdoor</option>
+                  <option value="Animal and pets">Animal and pets</option>
+                  <option value="Machinery tools">Machinery tools</option>
+                  <option value="Books">Books</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+
+              <div class="field">
+                <label for="price">Price</label>
+                <input id="price" name="price" type="number" min="0" step="0.01" placeholder="0.00" >
+              </div>
+
+              <div class="field">
+                <label for="oldPrice">Old price</label>
+                <input id="oldPrice" name="oldPrice" type="number" min="0" step="0.01" placeholder="0.00">
+              </div>
+
+              <div class="field field-full">
+                <label for="image">Image</label>
+                <input id="image" name="image" type="text" placeholder="/assets/product.jpg" >
+              </div>
+
+              <div class="field field-full">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="Write a short product description" ></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h2>Store metrics</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label for="stock">Stock</label>
+                <input id="stock" name="stock" type="number" min="0" step="1" placeholder="0">
+              </div>
+
+              <div class="field">
+                <label for="rating">Rating</label>
+                <input id="rating" name="rating" type="number" min="0" max="5" step="0.1" placeholder="0.0">
+              </div>
+
+              <div class="field">
+                <label for="reviews">Reviews</label>
+                <input id="reviews" name="reviews" type="number" min="0" step="1" placeholder="0">
+              </div>
+
+              <label class="featured-toggle" for="featured">
+                <span>Featured</span>
+                <input id="featured" name="featured" type="checkbox">
+              </label>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <a class="secondary-button" href="/products">Cancel</a>
+            <button class="primary-button" type="submit">Add product</button>
+          </div>
+        </div>
+
+        <aside class="form-summary card">
+          <h2>Product record</h2>
+          <ul class="summary-list">
+            <li><span>Required</span><strong>Name, price, category</strong></li>
+            <li><span>Media</span><strong>Image path or URL</strong></li>
+            <li><span>Visibility</span><strong>Featured optional</strong></li>
+          </ul>
+        </aside>
+      </form>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

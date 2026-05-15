@@ -167,6 +167,34 @@
   fill: currentColor;
 }
 
+.catalog-content .success-alert {
+  background: #e6ffed;
+  color: #1a7f37;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.add-product-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background: #127FFF;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: 0.2s ease;
+}
+
+.add-product-btn:hover {
+  opacity: 0.9;
+}
+
 .filter-tags {
   display: flex;
   flex-wrap: wrap;

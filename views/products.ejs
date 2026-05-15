@@ -223,6 +223,12 @@
         </aside>
 
         <section class="catalog-content">
+          <% if (success) { %>
+            <div class="success-alert">
+              <%= success %>
+            </div>
+          <% } %>
+
           <div class="catalog-toolbar card">
             <p><%= totalProducts %> items in <strong><%= category || 'All category' %></strong></p>
             <div class="toolbar-controls">
@@ -246,6 +252,11 @@
                 <!-- <button class="view-button" type="button" data-view-button="grid" aria-label="Grid view"><svg><use href="#i-grid"></use></svg></button>
                 <button class="view-button active" type="button" data-view-button="list" aria-label="List view"><svg><use href="#i-list"></use></svg></button> -->
               </div>
+
+              <!-- ADD PRODUCT BUTTON -->
+              <a href="/products/add" class="add-product-btn">
+                + Add Product
+              </a>
             </div>
           </div>
 

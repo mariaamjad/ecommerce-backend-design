@@ -58,10 +58,99 @@ router.get("/products", async (req, res) => {
       view,
       totalProducts,
       totalPages,
+      success: req.query.success,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send("Server Error");
+  }
+});
+
+// Add Product Page
+router.get('/products/add', (req, res) => {
+  res.render('add-product', { errors: [] });
+});
+
+// Handle Add Product Form Submission
+router.post("/products/add", async (req, res) => {
+  try {
+    const {
+      name,
+      category,
+      price,
+      oldPrice,
+      image,
+      description,
+      stock,
+      rating,
+      reviews,
+      featured,
+    } = req.body;
+
+    const errors = [];
+
+    if (!name || name.trim().length < 3) {
+      errors.push("Name must be at least 3 characters long");
+    }
+
+    if (!category) {
+      errors.push("Category is required");
+    }
+
+    if (!price || isNaN(Number(price)) || Number(price) <= 0) {
+      errors.push("Price must be a valid number greater than 0");
+    }
+
+    if (!image || image.trim().length < 5) {
+      errors.push("Image URL is required");
+    }
+
+    if (!description || description.trim().length < 10) {
+      errors.push("Description must be at least 10 characters long");
+    }
+
+    // OPTIONAL FIELDS
+    if (oldPrice && (isNaN(Number(oldPrice)) || Number(oldPrice) < 0)) {
+      errors.push("Old price must be 0 or greater");
+    }
+
+    if (stock && (isNaN(Number(stock)) || Number(stock) < 0)) {
+      errors.push("Stock cannot be negative");
+    }
+
+    if (rating && (isNaN(Number(rating)) || Number(rating) < 0 || Number(rating) > 5)) {
+      errors.push("Rating must be between 0 and 5");
+    }
+
+    if (reviews && (isNaN(Number(reviews)) || Number(reviews) < 0)) {
+      errors.push("Reviews cannot be negative");
+    }
+
+    if (errors.length > 0) {
+      // console.log("ERRORS:", errors);
+      return res.status(400).render("add-product", {errors, });
+    }
+
+    const product = new Product({
+      name,
+      category,
+      price,
+       oldPrice,
+      image,
+      description,
+      stock,
+      rating,
+      reviews,
+      featured: featured === "on", 
+    });
+
+    await product.save();
+
+    res.redirect('/products?success=Product added successfully');
+  }
+  catch (error) {
+    console.log(error);
+    res.send("Error creating product");
   }
 });
 
