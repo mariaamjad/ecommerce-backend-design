@@ -254,9 +254,9 @@
               </div>
 
               <!-- ADD PRODUCT BUTTON -->
-              <a href="/products/add" class="add-product-btn">
-                + Add Product
-              </a>
+              <% if (user && user.isAdmin) { %>
+                <a href="/products/add" class="add-product-btn">+ Add Product</a>
+              <% } %>
             </div>
           </div>
 

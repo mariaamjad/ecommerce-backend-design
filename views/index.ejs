@@ -299,12 +299,44 @@
 
           <aside class="hero-side">
             <div class="user-card">
-              <div class="user-meta">
+              <% if (user) { %>
+
+                <div class="user-meta">
+                  <div class="avatar"></div>
+                  <p>
+                    Hi, <%= user.name || "User" %><br />
+                    Welcome back
+                  </p>
+                </div>
+              
+                <a href="/logout" class="primary-button">
+                  Logout
+                </a>
+              
+              <% } else { %>
+              
+                <div class="user-meta">
+                  <div class="avatar"></div>
+                  <p>
+                    Hi, user<br />
+                    let's get started
+                  </p>
+                </div>
+              
+                <a href="/signup" class="primary-button">
+                  Join now
+                </a>
+                <a href="/login" class="secondary-button">
+                  Log in
+                </a>
+              
+              <% } %>
+              <!-- <div class="user-meta">
                 <div class="avatar"></div>
                 <p>Hi, user<br />let's get stated</p>
               </div>
               <a href="#" class="primary-button">Join now</a>
-              <a href="#" class="secondary-button">Log in</a>
+              <a href="#" class="secondary-button">Log in</a> -->
             </div>
 
             <a href="#" class="side-offer side-offer-orange">

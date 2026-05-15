@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product");
+const { authMiddleware, adminMiddleware } = require("../middleware/authMiddleware");
 
 // Home Page
 router.get("/", async (req, res) => {
@@ -67,12 +68,12 @@ router.get("/products", async (req, res) => {
 });
 
 // Add Product Page
-router.get('/products/add', (req, res) => {
+router.get('/products/add', authMiddleware, adminMiddleware, (req, res) => {
   res.render('add-product', { errors: [] });
 });
 
 // Handle Add Product Form Submission
-router.post("/products/add", async (req, res) => {
+router.post("/products/add", authMiddleware, adminMiddleware, async (req, res) => {
   try {
     const {
       name,
